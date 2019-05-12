@@ -8,6 +8,8 @@ using GymProject.Models;
 
 namespace GymProject.Controllers
 {
+     
+    /*commit try*/
     public class HomeController : Controller
     {
         public IActionResult Index()
