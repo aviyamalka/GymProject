@@ -7,6 +7,7 @@ namespace GymProject.Models
 {
     public class Lesson
     {
+        public int LessonId { get; set; }
         public Branch BranchId { get; set; }
         public Training TrainingId { get; set; }
         public DateTime StartTime { get; set; }
