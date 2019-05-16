@@ -4,56 +4,73 @@
     ViewData["Title"] = "Index";
 }
 
+<link rel="stylesheet" href="~/css/GlobalStyle.css" />
 <h2>Index</h2>
-
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
+<div class="form-row SearchTxtBoxWrapper pull-right">
+    <div class="col-md-3 pull-right">
+        <input type="text" class="form-control" placeholder="עיר">
+    </div>
+    <div class="col-md-3 pull-right">
+        <input type="text" class="form-control" placeholder="אימון">
+    </div>
+    <div class="col-md-3 pull-right">
+        <input type="text" class="form-control" placeholder="תאריך">
+    </div>
+</div>
+@*commented by yaelf: should be only in admin role*@
+@*<p>
+        <a asp-action="Create">Create New</a>
+    </p>*@
+<table class="table pull-right">
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.StartTime)
+                @*@Html.DisplayNameFor(model => model.StartTime)*@
+                <label class="pull-right">שעת התחלה</label>
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.EndTime)
+                @*@Html.DisplayNameFor(model => model.EndTime)*@
+                <label class="pull-right">שעת סיום</label>
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.TeacherName)
+                @*@Html.DisplayNameFor(model => model.TeacherName)*@
+                <label class="pull-right">שם מורה</label>
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.RegistrantMax)
+                @*@Html.DisplayNameFor(model => model.RegistrantMax)*@
+                <label class="pull-right">מספר משתתפים מקסימלי</label>
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.RegistrantNum)
+                @*@Html.DisplayNameFor(model => model.RegistrantNum)*@
+                <label class="pull-right">מספר משתתפים</label>
             </th>
-            <th></th>
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.StartTime)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.EndTime)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.TeacherName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.RegistrantMax)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.RegistrantNum)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.LessonId">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.LessonId">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.LessonId">Delete</a>
-            </td>
-        </tr>
-}
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.StartTime)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.EndTime)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TeacherName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.RegistrantMax)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.RegistrantNum)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.LessonId">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.LessonId">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.LessonId">Delete</a>
+                </td>
+            </tr>
+        }
     </tbody>
 </table>
