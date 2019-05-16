@@ -15,5 +15,7 @@ namespace GymProject.Data
         }
         DbSet<User> Users { get; set; }
         DbSet<Address> Addresses { get; set; }
+        public DbSet<GymProject.Models.Lesson> Lesson { get; set; }
+        public DbSet<GymProject.Models.Branch> Branch { get; set; }
     }
 }
