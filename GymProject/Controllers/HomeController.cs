@@ -10,6 +10,7 @@ namespace GymProject.Controllers
 {
      
     /*commit try*/
+    //yaelf
     public class HomeController : Controller
     {
         public IActionResult Index()
