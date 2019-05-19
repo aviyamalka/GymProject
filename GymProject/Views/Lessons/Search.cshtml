@@ -1,0 +1,62 @@
+﻿@model IEnumerable<GymProject.Models.Lesson>
+
+@{
+    ViewData["Title"] = "Search";
+}
+
+<h2>Search</h2>
+@*only manager role should have these button*@
+@*<p>
+        <a asp-action="Create">Create New</a>
+    </p>*@
+@Html.TextBox("Search")
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.StartTime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EndTime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TeacherName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RegistrantMax)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RegistrantNum)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.StartTime)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.EndTime)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TeacherName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.RegistrantMax)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.RegistrantNum)
+                </td>
+                @*only manager role should have these links*@
+                @*<td>
+                        <a asp-action="Edit" asp-route-id="@item.LessonId">Edit</a> |
+                        <a asp-action="Details" asp-route-id="@item.LessonId">Details</a> |
+                        <a asp-action="Delete" asp-route-id="@item.LessonId">Delete</a>
+                    </td>*@
+            </tr>
+        }
+    </tbody>
+</table>

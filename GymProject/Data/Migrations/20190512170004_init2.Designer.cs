@@ -4,139 +4,22 @@ using GymProject.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace GymProject.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20190512170004_init2")]
+    partial class init2
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
                 .HasAnnotation("ProductVersion", "2.1.8-servicing-32085")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-            modelBuilder.Entity("GymProject.Models.Address", b =>
-                {
-                    b.Property<int>("AddressId")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("City");
-
-                    b.Property<int>("Number");
-
-                    b.Property<string>("Street");
-
-                    b.HasKey("AddressId");
-
-                    b.ToTable("Addresses");
-                });
-
-            modelBuilder.Entity("GymProject.Models.Branch", b =>
-                {
-                    b.Property<int>("BranchId")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<int?>("BranchAddressAddressId");
-
-                    b.Property<DateTime>("EndTime");
-
-                    b.Property<bool>("IsBabySitter");
-
-                    b.Property<string>("Name");
-
-                    b.Property<string>("Phone");
-
-                    b.Property<DateTime>("StartTime");
-
-                    b.HasKey("BranchId");
-
-                    b.HasIndex("BranchAddressAddressId");
-
-                    b.ToTable("Branch");
-                });
-
-            modelBuilder.Entity("GymProject.Models.Lesson", b =>
-                {
-                    b.Property<int>("LessonId")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<int?>("BranchId1");
-
-                    b.Property<DateTime>("EndTime");
-
-                    b.Property<int>("RegistrantMax");
-
-                    b.Property<int>("RegistrantNum");
-
-                    b.Property<DateTime>("StartTime");
-
-                    b.Property<string>("TeacherName");
-
-                    b.Property<int?>("TrainingId1");
-
-                    b.HasKey("LessonId");
-
-                    b.HasIndex("BranchId1");
-
-                    b.HasIndex("TrainingId1");
-
-                    b.ToTable("Lesson");
-                });
-
-            modelBuilder.Entity("GymProject.Models.Training", b =>
-                {
-                    b.Property<int>("TrainingId")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("Description");
-
-                    b.Property<string>("Name");
-
-                    b.Property<string>("VideoUrl");
-
-                    b.HasKey("TrainingId");
-
-                    b.ToTable("Training");
-                });
-
-            modelBuilder.Entity("GymProject.Models.User", b =>
-                {
-                    b.Property<int>("UserId")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<int>("Age");
-
-                    b.Property<string>("Email");
-
-                    b.Property<string>("FirstName");
-
-                    b.Property<string>("LastName");
-
-                    b.Property<string>("Password");
-
-                    b.Property<string>("Phone");
-
-                    b.Property<string>("ProfieImgSrc");
-
-                    b.Property<int?>("UserAdressAddressId");
-
-                    b.Property<string>("UserName");
-
-                    b.HasKey("UserId");
-
-                    b.HasIndex("UserAdressAddressId");
-
-                    b.ToTable("Users");
-                });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
                 {
@@ -301,31 +184,6 @@ namespace GymProject.Data.Migrations
                     b.HasKey("UserId", "LoginProvider", "Name");
 
                     b.ToTable("AspNetUserTokens");
-                });
-
-            modelBuilder.Entity("GymProject.Models.Branch", b =>
-                {
-                    b.HasOne("GymProject.Models.Address", "BranchAddress")
-                        .WithMany("Branches")
-                        .HasForeignKey("BranchAddressAddressId");
-                });
-
-            modelBuilder.Entity("GymProject.Models.Lesson", b =>
-                {
-                    b.HasOne("GymProject.Models.Branch", "BranchId")
-                        .WithMany("Lessons")
-                        .HasForeignKey("BranchId1");
-
-                    b.HasOne("GymProject.Models.Training", "TrainingId")
-                        .WithMany("Lessons")
-                        .HasForeignKey("TrainingId1");
-                });
-
-            modelBuilder.Entity("GymProject.Models.User", b =>
-                {
-                    b.HasOne("GymProject.Models.Address", "UserAdress")
-                        .WithMany("Users")
-                        .HasForeignKey("UserAdressAddressId");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>

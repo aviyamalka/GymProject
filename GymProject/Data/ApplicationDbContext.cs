@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using GymProject.Models;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
@@ -12,5 +13,9 @@ namespace GymProject.Data
             : base(options)
         {
         }
+        DbSet<User> Users { get; set; }
+        DbSet<Address> Addresses { get; set; }
+        public DbSet<GymProject.Models.Lesson> Lesson { get; set; }
+        public DbSet<GymProject.Models.Branch> Branch { get; set; }
     }
 }

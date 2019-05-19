@@ -12,9 +12,16 @@ namespace GymProject
 {
     public class Program
     {
+
+
         public static void Main(string[] args)
         {
-            CreateWebHostBuilder(args).Build().Run();
+            var host = CreateWebHostBuilder(args).Build();
+
+            //_context.Add(branch);
+            //await _context.SaveChangesAsync();
+
+            host.Run();
         }
 
         public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
