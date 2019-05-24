@@ -9,7 +9,6 @@ using Microsoft.Extensions.Caching.Memory;
 
 namespace GymProject.Controllers
 {
-    //yaelf
     public class HomeController : Controller
     {
         private IMemoryCache cache;
