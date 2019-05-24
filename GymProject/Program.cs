@@ -20,7 +20,6 @@ namespace GymProject
 
             //_context.Add(branch);
             //await _context.SaveChangesAsync();
-
             host.Run();
         }
 

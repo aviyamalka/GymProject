@@ -24,7 +24,12 @@ namespace GymProject.Controllers
         {
             return View(await _context.Lesson.ToListAsync());
         }
-
+        public async Task<IActionResult> Search(string city,DateTime date,string trainning)
+        {
+            //TODO : add filter to get only by serch params
+           // return View(await _context.Lesson.Where());
+            return View();
+        }
         // GET: Lessons/Details/5
         public async Task<IActionResult> Details(int? id)
         {

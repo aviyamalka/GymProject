@@ -13,9 +13,9 @@ namespace GymProject.Data
             : base(options)
         {
         }
-        DbSet<User> Users { get; set; }
-        DbSet<Address> Addresses { get; set; }
-        public DbSet<GymProject.Models.Lesson> Lesson { get; set; }
-        public DbSet<GymProject.Models.Branch> Branch { get; set; }
+       public DbSet<User> Users { get; set; }
+       public DbSet<Address> Addresses { get; set; }
+        public DbSet<Lesson> Lesson { get; set; }
+        public DbSet<Branch> Branch { get; set; }
     }
 }
