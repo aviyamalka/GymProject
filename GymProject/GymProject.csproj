@@ -13,6 +13,11 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Remove="Data\Migrations\20190516190148_changeLessonModel.cs" />
+    <Compile Remove="Data\Migrations\20190516190148_changeLessonModel.Designer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Include="wwwroot\css\GlobalStyle.css" />
   </ItemGroup>
 
