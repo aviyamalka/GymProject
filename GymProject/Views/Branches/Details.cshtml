@@ -3,7 +3,11 @@
 @{
     ViewData["Title"] = "Details";
 }
-
+<link rel="stylesheet" href="~/css/Branches.css" />
+<script src="~/js/Branches.js"></script>
+<script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDBpXsjho6pF0E6VkgFpOIzfO--N8O8vA0&callback=initMap">
+</script>
 <h2>Details</h2>
 
 <div>
@@ -42,6 +46,11 @@
         </dd>
     </dl>
 </div>
+
+<h3>My Google Maps Demo</h3>
+<!--The div element for the map -->
+<div id="map"></div>
+
 <div>
     <a asp-action="Edit" asp-route-id="@Model.BranchId">Edit</a> |
     <a asp-action="Index">Back to List</a>
