@@ -7,25 +7,35 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using GymProject.Data;
 using GymProject.Models;
+using Microsoft.Extensions.Caching.Memory;
+using GymProject.Logic;
 
 namespace GymProject.Controllers
 {
     public class LessonsController : Controller
     {
         private readonly ApplicationDbContext _context;
-
-        public LessonsController(ApplicationDbContext context)
+        private IMemoryCache cache;
+        public LessonsController(ApplicationDbContext context, IMemoryCache cache)
         {
+            this.cache = cache;
             _context = context;
         }
 
         // GET: Lessons
         public async Task<IActionResult> Index()
         {
+            BussinessLogic BL = new BussinessLogic(this.cache,_context);
+            List<string> citiesLst = BL.GetCitiesNamesFromCache();
+            ViewBag.citiesLst = citiesLst;
             return View(await _context.Lesson.ToListAsync());
         }
         public async Task<IActionResult> Search(string city,DateTime date,string trainning)
         {
+            if (city != "-עיר-" && trainning != "-אימון-")
+            {
+
+            }
             //TODO : add filter to get only by serch params
            // return View(await _context.Lesson.Where());
             return View();
