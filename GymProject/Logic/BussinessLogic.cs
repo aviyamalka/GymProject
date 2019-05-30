@@ -36,20 +36,22 @@ namespace GymProject.Logic
             return cities;
         }
         // TODO:implement function to get trainings from db and from cache
-        //public List<string> GetTrainingNamesFromCache()
-        //{
-        //    List<string> trainingLst = _cache.Get<List<string>>("trainingLst");
+        public List<string> GetTrainingNamesFromCache()
+        {
+            List<string> trainingLst = _cache.Get<List<string>>("trainingLst");
 
-        //    if (trainingLst == null)
-        //    {
-        //        trainingLst = GetTrainingNamesFromDB();
-        //        _cache.Set("trainingLst", trainingLst);
-        //    }
-        //    return trainingLst;
-        //}
-        //public List<string> GetTrainingNamesFromDB()
-        //{
-        //    List<string> trainings=_context.
-        //}
+            if (trainingLst == null)
+            {
+                trainingLst = GetTrainingNamesFromDB();
+                _cache.Set("trainingLst", trainingLst);
+            }
+            return trainingLst;
+        }
+        public List<string> GetTrainingNamesFromDB()
+        {
+            List<string> trainings = _context.Training.Select(t =>t.Name).Distinct().ToList();
+            trainings.Insert(0, "-אימון-");
+            return trainings;
+        }
     }
 }

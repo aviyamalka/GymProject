@@ -17,5 +17,6 @@ namespace GymProject.Data
        public DbSet<Address> Addresses { get; set; }
         public DbSet<Lesson> Lesson { get; set; }
         public DbSet<Branch> Branch { get; set; }
+        public DbSet<Training> Training { get; set; }
     }
 }

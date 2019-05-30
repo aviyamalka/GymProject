@@ -14,13 +14,16 @@
     @*<div class="col-md-4 pull-right">
             <input type="text" class="form-control" placeholder="עיר">
         </div>*@
-    <div class="col-md-3  pull-right">
-        <input type="text" class="form-control" placeholder="אימון">
+    @*<div class="col-md-3  pull-right">
+            <input type="text" class="form-control" placeholder="אימון">
+        </div>*@
+    <div class="col-md-3 pull-right">
+        <select asp-items="@(new SelectList(ViewBag.traningLst,"-עיר-"))" class="form-control"></select>
     </div>
     <div class="col-md-3 pull-right">
         <input type="text" class="form-control" placeholder="תאריך">
     </div>
-    <label class="btn btn-danger" for="my-file-selector">
+    <label class="btn btn-danger">
         <input type="button" style="display:none">
         חפש <span class="glyphicon glyphicon-search"></span>
     </label>
