@@ -8,15 +8,22 @@
 <script src="~/js/Lessons.js"></script>
 <h2>חיפוש  שיעור</h2>
 <div class="row SearchTxtBoxWrapper pull-right col-md-12">
-    <div class="col-md-4 pull-right">
-        <input type="text" class="form-control" placeholder="עיר">
+    <div class="col-md-3 pull-right">
+        <select asp-items="@(new SelectList(ViewBag.citiesLst,"-עיר-"))" class="form-control"></select>
     </div>
-    <div class="col-md-4  pull-right">
+    @*<div class="col-md-4 pull-right">
+            <input type="text" class="form-control" placeholder="עיר">
+        </div>*@
+    <div class="col-md-3  pull-right">
         <input type="text" class="form-control" placeholder="אימון">
     </div>
-    <div class="col-md-4 pull-right">
+    <div class="col-md-3 pull-right">
         <input type="text" class="form-control" placeholder="תאריך">
     </div>
+    <label class="btn btn-danger" for="my-file-selector">
+        <input type="button" style="display:none">
+        חפש <span class="glyphicon glyphicon-search"></span>
+    </label>
 </div>
 @*commented by yaelf: should be only in admin role*@
 @*<p>
