@@ -27,7 +27,9 @@ namespace GymProject.Controllers
         {
             BussinessLogic BL = new BussinessLogic(this.cache,_context);
             List<string> citiesLst = BL.GetCitiesNamesFromCache();
+            List<string> traningLst = BL.GetTrainingNamesFromCache();
             ViewBag.citiesLst = citiesLst;
+            ViewBag.traningLst = traningLst;
             return View(await _context.Lesson.ToListAsync());
         }
         public async Task<IActionResult> Search(string city,DateTime date,string trainning)
