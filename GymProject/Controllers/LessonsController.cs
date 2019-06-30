@@ -32,15 +32,30 @@ namespace GymProject.Controllers
             ViewBag.traningLst = traningLst;
             return View(await _context.Lesson.ToListAsync());
         }
-        public async Task<IActionResult> Search(string city,DateTime date,string trainning)
+        public void Search(string city, DateTime date, string trainning)
+         //public async Task<IActionResult> Search(string city,DateTime date,string trainning)
         {
-            if (city != "-עיר-" && trainning != "-אימון-")
+
+            if (city != "-עיר-")
+            {
+            //    List<Lesson> result = (from less in _context.Lesson
+            //                           join bran in _context.Branch on less.LessonId equals bran.BranchId
+            //                           join add in _context.Addresses on bran.BranchAddress.AddressId equals add.AddressId
+            //                           select new Lesson
+            //                           {
+            //                               LessonId = less.LessonId
+
+            //                           }).ToList();
+            }
+            else
             {
 
             }
-            //TODO : add filter to get only by serch params
-           // return View(await _context.Lesson.Where());
-            return View();
+            if (trainning!="-אימון-")
+            {
+
+            }
+            
         }
         // GET: Lessons/Details/5
         public async Task<IActionResult> Details(int? id)
