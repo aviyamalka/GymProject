@@ -181,5 +181,33 @@ namespace GymProject.Controllers
         {
             return _context.Lesson.Any(e => e.LessonId == id);
         }
+
+        public bool RegisterToLesson(int UserId, int LessonId)
+        {
+            try
+            {
+                LessonLogic logic = new LessonLogic(_context);
+                logic.RegisterToLesson(UserId, LessonId);
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
+        public bool CancelRegistrant(int UserId, int LessonId)
+        {
+            try
+            {
+                LessonLogic logic = new LessonLogic(_context);
+                logic.CancelRegistrant(UserId, LessonId);
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
     }
 }

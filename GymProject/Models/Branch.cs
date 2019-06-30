@@ -14,6 +14,7 @@ namespace GymProject.Models
         public DateTime EndTime { get; set; }
         public bool IsBabySitter{get;set;}
         public Address BranchAddress { get; set; }
+        //public int AddressId { get; set; }
         public ICollection<Lesson> Lessons { get; set; }
 
     }

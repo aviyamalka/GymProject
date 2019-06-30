@@ -13,10 +13,11 @@ namespace GymProject.Data
             : base(options)
         {
         }
-       public DbSet<User> Users { get; set; }
-       public DbSet<Address> Addresses { get; set; }
+        public DbSet<User> Users { get; set; }
+        public DbSet<Address> Addresses { get; set; }
         public DbSet<Lesson> Lesson { get; set; }
         public DbSet<Branch> Branch { get; set; }
-        public DbSet<GymProject.Models.Training> Training { get; set; }
+        public DbSet<Training> Training { get; set; }
+        public DbSet<Registrant> Registrant { get; set; }
     }
 }
