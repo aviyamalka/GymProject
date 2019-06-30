@@ -3,3 +3,14 @@
     height: 400px;
     background-color: grey;
 }
+
+.headline:before {
+    content: "";
+    background: #eae2d9;
+    height: 3px;
+    width: 100%;
+    position: absolute;
+    left: 0;
+    top: 50%;
+    margin-top: -1.5px;
+}
