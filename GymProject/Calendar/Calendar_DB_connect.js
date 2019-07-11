@@ -26,11 +26,12 @@
         debugger;
         var url = "https://localhost:5001/Lessons/GetAllLessons";
         var data;
-        var isAsync = true;
+        var isAsync = false;
         var result = DbConnection.getResultsFromServer(url, data, isAsync);
         if (result !== null)
         {
-            alert("success");
+            debugger;
+            return result;
         }
     }
 })(window.DbConnection = window.DbConnection || {});
