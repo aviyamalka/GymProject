@@ -1,0 +1,105 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <link href='core/main.css' rel='stylesheet' />
+    <link href='daygrid/main.css' rel='stylesheet' />
+    <link href='timegrid/main.css' rel='stylesheet' />
+    <link href='list/main.css' rel='stylesheet' />
+    <link href='bootstrap/main.css' rel="stylesheet" />
+
+    <!--<script src='moment/main.js'></script>-->
+    <!--<script src='bootstrap/main.js'></script>-->
+    <!--<script src='full_calendar_he.js'></script>-->
+    <script src='el_jquery.min.js'></script>
+    <script src='Calendar_DB_connect.js'></script>
+    <script src='full_calendar_init.js'></script>
+    <script src='core/main.js'></script>
+    <script src='daygrid/main.js'></script>
+    <script src='timegrid/main.js'></script>
+    <script src='list/main.js'></script>
+    <script src='full_calendar_he.js'></script>
+    <title></title>
+</head>
+<body>
+    <div id='calendar' style="text-align:right"></div>
+    <!--<div id="myModal" class="modal" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 id="subject" class="modal-title pull-right col-md-12"></h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p id="startTime"></p>
+                    <p id="endTime"></p>
+                    <a href="https://docs.microsoft.com/en-us/dynamics365/customer-engagement/developer/open-forms-views-dialogs-reports-url" id="recordUrl">לחץ כאן לצפיה ברשומה</a>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">סגור</button>
+                </div>
+            </div>
+        </div>
+    </div>-->
+    <!--<script>
+        debugger;
+        document.addEventListener('DOMContentLoaded', function () {
+            var calendarEl = document.getElementById('calendar');
+
+            var calendar = new FullCalendar.Calendar(calendarEl, {
+                header: { center: 'dayGridMonth,timeGridWeek' },
+                plugins: ['dayGrid', 'timegrid', 'list'],
+                events: [
+                    {
+                        title: 'event1',
+                        start: '2019-01-01',
+                        url: 'https://fullcalendar.io/docs/eventClick'
+                    },
+                    {
+                        title: 'event2',
+                        start: '2019-01-05',
+                        end: '2019-01-07'
+                    },
+                    {
+                        title: 'event3',
+                        start: '2019-01-09T12:30:00',
+                        allDay: false // will make the time show
+                    }
+                ],
+                eventClick: function (info) {
+                    info.jsEvent.preventDefault(); // don't let the browser navigate
+
+                    if (info.event.url) {
+                        window.open(info.event.url);
+                    }
+                },
+                views: {
+                    dayGrid: {
+                        // options apply to dayGridMonth, dayGridWeek, and dayGridDay views
+                    },
+                    timeGrid: {
+                        // options apply to timeGridWeek and timeGridDay views
+                    },
+                    week: {
+                        // options apply to dayGridWeek and timeGridWeek views
+                    },
+                    day: {
+                        // options apply to dayGridDay and timeGridDay views
+                    }
+                }
+
+            });
+
+            calendar.render();
+        });
+        $(function () {
+            debugger;
+            DbConnection.getAllLessons();
+        });
+
+    </script>-->
+</body>
+</html>

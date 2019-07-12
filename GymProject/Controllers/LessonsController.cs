@@ -32,15 +32,49 @@ namespace GymProject.Controllers
             ViewBag.traningLst = traningLst;
             return View(await _context.Lesson.ToListAsync());
         }
-        public async Task<IActionResult> Search(string city,DateTime date,string trainning)
+        public List<CalendarLesson> GetAllLessons()
         {
-            if (city != "-עיר-" && trainning != "-אימון-")
+            return (from less in _context.Lesson
+                    join bran in _context.Branch on less.BranchId equals bran
+                    join train in _context.Training
+                    on less.TrainingId equals train select new CalendarLesson{
+                        LessonId=less.LessonId,
+                        BranchId=bran,
+                        BranchName=bran.Name,
+                        EndTime=less.EndTime,
+                        StartTime=less.StartTime,
+                        RegistrantMax=less.RegistrantMax,
+                        RegistrantNum=less.RegistrantNum,
+                        TeacherName=less.TeacherName,
+                        TrainingId=train,
+                        TrainningName= train.Name
+
+                    }).ToList();
+        }
+        public void Search(string city, DateTime date, string trainning)
+         //public async Task<IActionResult> Search(string city,DateTime date,string trainning)
+        {
+
+            if (city != "-עיר-")
+            {
+            //    List<Lesson> result = (from less in _context.Lesson
+            //                           join bran in _context.Branch on less.LessonId equals bran.BranchId
+            //                           join add in _context.Addresses on bran.BranchAddress.AddressId equals add.AddressId
+            //                           select new Lesson
+            //                           {
+            //                               LessonId = less.LessonId
+
+            //                           }).ToList();
+            }
+            else
             {
 
             }
-            //TODO : add filter to get only by serch params
-           // return View(await _context.Lesson.Where());
-            return View();
+            if (trainning!="-אימון-")
+            {
+
+            }
+            
         }
         // GET: Lessons/Details/5
         public async Task<IActionResult> Details(int? id)
