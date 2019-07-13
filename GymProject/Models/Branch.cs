@@ -15,6 +15,6 @@ namespace GymProject.Models
         public bool IsBabySitter{get;set;}
         public Address BranchAddress { get; set; }
         public ICollection<Lesson> Lessons { get; set; }
-
+        public String ImagePath { get; set; }
     }
 }
