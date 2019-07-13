@@ -4,7 +4,7 @@
     background-color: grey;
 }
 
-.headline:before {
+/*.headline:before {
     content: "";
     background: #eae2d9;
     height: 3px;
@@ -13,7 +13,7 @@
     left: 0;
     top: 50%;
     margin-top: -1.5px;
-}
+}*/
 
 .headline {
     margin-top: 20px;
