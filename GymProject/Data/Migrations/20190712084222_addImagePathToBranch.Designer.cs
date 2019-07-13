@@ -10,14 +10,14 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace GymProject.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20190512184403_AddTables")]
-    partial class AddTables
+    [Migration("20190712084222_addImagePathToBranch")]
+    partial class addImagePathToBranch
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "2.1.8-servicing-32085")
+                .HasAnnotation("ProductVersion", "2.1.11-servicing-32099")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
@@ -46,7 +46,9 @@ namespace GymProject.Data.Migrations
 
                     b.Property<int?>("BranchAddressAddressId");
 
-                    b.Property<DateTime>("EndTime");
+                    b.Property<TimeSpan>("EndTime");
+
+                    b.Property<string>("ImagePath");
 
                     b.Property<bool>("IsBabySitter");
 
@@ -54,7 +56,7 @@ namespace GymProject.Data.Migrations
 
                     b.Property<string>("Phone");
 
-                    b.Property<DateTime>("StartTime");
+                    b.Property<TimeSpan>("StartTime");
 
                     b.HasKey("BranchId");
 
@@ -90,6 +92,25 @@ namespace GymProject.Data.Migrations
                     b.HasIndex("TrainingId1");
 
                     b.ToTable("Lesson");
+                });
+
+            modelBuilder.Entity("GymProject.Models.Registrant", b =>
+                {
+                    b.Property<int>("RegistrantId")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int?>("LessonId1");
+
+                    b.Property<int?>("UserId1");
+
+                    b.HasKey("RegistrantId");
+
+                    b.HasIndex("LessonId1");
+
+                    b.HasIndex("UserId1");
+
+                    b.ToTable("Registrant");
                 });
 
             modelBuilder.Entity("GymProject.Models.Training", b =>
@@ -321,6 +342,17 @@ namespace GymProject.Data.Migrations
                     b.HasOne("GymProject.Models.Training", "TrainingId")
                         .WithMany("Lessons")
                         .HasForeignKey("TrainingId1");
+                });
+
+            modelBuilder.Entity("GymProject.Models.Registrant", b =>
+                {
+                    b.HasOne("GymProject.Models.Lesson", "LessonId")
+                        .WithMany()
+                        .HasForeignKey("LessonId1");
+
+                    b.HasOne("GymProject.Models.User", "UserId")
+                        .WithMany()
+                        .HasForeignKey("UserId1");
                 });
 
             modelBuilder.Entity("GymProject.Models.User", b =>
