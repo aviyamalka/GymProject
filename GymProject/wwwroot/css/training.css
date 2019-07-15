@@ -1,0 +1,62 @@
+﻿
+body {
+    font-family: 'Assistant', sans-serif;
+}
+
+/*
+    DESIGN THE CARDS - Index page
+*/
+.card {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 10px;
+    height: 350px;
+    font-size: 16px !important;
+    margin: 20px 0;
+    position: relative;
+}
+.card h4 {
+    font-size: 32px;
+    text-align: center;
+    font-family: 'Assistant', sans-serif;
+    text-align: center;
+}
+.card p {
+    font-size: 20px;
+    font-family: 'Assistant', sans-serif;
+}
+.card .options {
+     width: 100%;
+     font-size: 19px;
+     bottom: 0;
+     position: absolute;
+     text-align: center;
+ }
+
+/*
+    DESIGN THE Details page
+*/
+.details h1 {
+    font-family: 'Assistant', sans-serif;
+    padding: 0;
+    font-size: 56px;
+    line-height: 1;
+    margin: 75px 0 0 0;
+}
+.card h4 {
+    font-size: 32px;
+    text-align: center;
+    font-family: 'Assistant', sans-serif;
+    text-align: center;
+}
+.details p {
+    font-size: 23px;
+    font-family: 'Assistant', sans-serif;
+}
+.card .options {
+     width: 100%;
+     font-size: 19px;
+     bottom: 0;
+     position: absolute;
+     text-align: center;
+ }
