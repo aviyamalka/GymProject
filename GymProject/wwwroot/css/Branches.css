@@ -4,7 +4,7 @@
     background-color: grey;
 }
 
-.headline:before {
+/*.headline:before {
     content: "";
     background: #eae2d9;
     height: 3px;
@@ -13,4 +13,29 @@
     left: 0;
     top: 50%;
     margin-top: -1.5px;
+}*/
+
+.headline {
+    margin-top: 20px;
+}
+
+.details {
+    border-style: solid;
+    border-color: dimgray;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    padding: 50px;
+}
+
+.club-details-box {
+    margin-left: 130px;
+}
+
+.title {
+    font-size: 25px;
+    margin-bottom: 30px;
+}
+
+.icon {
+    padding: 10px
 }

@@ -22,7 +22,7 @@ namespace GymProject.Controllers
         // GET: Branches
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Branch.ToListAsync());
+            return View(await _context.Branch.Include(b => b.BranchAddress).ToListAsync());
         }
 
         // GET: Branches/Details/5
@@ -33,8 +33,12 @@ namespace GymProject.Controllers
                 return NotFound();
             }
 
-            var branch = await _context.Branch
-                .FirstOrDefaultAsync(m => m.BranchId == id);
+            var branch = await _context.Branch.Include(b =>b.BranchAddress).SingleOrDefaultAsync(m => m.BranchId == id);
+                
+
+
+            //var branch = await _context.Branch
+            //    .FirstOrDefaultAsync(m => m.BranchId == id);
             if (branch == null)
             {
                 return NotFound();

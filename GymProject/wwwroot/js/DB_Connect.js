@@ -1,12 +1,14 @@
-﻿function registerToLesson(UserId,LessonId) {
-    var controllerURL = '/Controlers/LessonsControlller/';
+﻿var registerToLesson = new function (UserId, LessonId) {
+    debugger;
+    var controllerURL = '/Controlers/LessonsControlller/RegisterToLesson';
     var params = {
-        UserId
+        UserId: UserId,
+        LessonId: LessonId
     };
     $.ajax({
         type: "POST",
         url: controllerURL,
-        data: params
+        data: params,
         contentType: "application/json; charset=utf-8",
         dataType: "json",
         success: successFunc,
@@ -21,6 +23,6 @@
         alert('error');
     }
 }
-function cancelRegistrant() {
-    $ajax
-}
+//function cancelRegistrant() {
+//    $ajax
+//}

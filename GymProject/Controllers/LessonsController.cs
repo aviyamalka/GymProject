@@ -32,6 +32,25 @@ namespace GymProject.Controllers
             ViewBag.traningLst = traningLst;
             return View(await _context.Lesson.ToListAsync());
         }
+        public List<CalendarLesson> GetAllLessons()
+        {
+            return (from less in _context.Lesson
+                    join bran in _context.Branch on less.BranchId equals bran
+                    join train in _context.Training
+                    on less.TrainingId equals train select new CalendarLesson{
+                        LessonId=less.LessonId,
+                        BranchId=bran,
+                        BranchName=bran.Name,
+                        EndTime=less.EndTime,
+                        StartTime=less.StartTime,
+                        RegistrantMax=less.RegistrantMax,
+                        RegistrantNum=less.RegistrantNum,
+                        TeacherName=less.TeacherName,
+                        TrainingId=train,
+                        TrainningName= train.Name
+
+                    }).ToList();
+        }
         public void Search(string city, DateTime date, string trainning)
          //public async Task<IActionResult> Search(string city,DateTime date,string trainning)
         {

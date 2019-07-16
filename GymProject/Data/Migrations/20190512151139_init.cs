@@ -2,8 +2,9 @@
 
 namespace GymProject.Data.Migrations
 {
-    public partial class init : Migration
-    {
+    public partial class init : Migration { 
+    
+        //test
         protected override void Up(MigrationBuilder migrationBuilder)
         {
 

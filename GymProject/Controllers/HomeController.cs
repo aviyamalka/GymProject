@@ -49,8 +49,6 @@ namespace GymProject.Controllers
         }
         public IActionResult tnxpage()
         {
-            ViewData["Message"] = "Your application description page.";
-
             return View();
         }
     }

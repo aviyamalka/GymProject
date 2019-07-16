@@ -1,35 +1,28 @@
-﻿//var lat, lng;
+﻿
 
-//function convertAddress(address) {
-//    $.ajax({
-//        url: "https://maps.googleapis.com/maps/api/geocode/json?address=" + address + "&key=AIzaSyBaXwNfoIKrVcAuApGr_QH9CUqyGrCCot4",
-//        type: "POST",
-//        success: function (res) {
-//           lat = res.results[0].geometry.location.lat;
-//           lng = res.results[0].geometry.location.lng;
-//        }
-//    });
+    
+
+//func getCurrentUrl() {
+//    rn document.URL;
 //}
 
-//// Initialize and add the map
-//function initMap() {
-//  // The location of Uluru
-//  var address = {lat: lat, lng: lng};
-//  // The map, centered at Uluru
-//  var map = new google.maps.Map(
-//  document.getElementById('map'), { zoom: 8, center: address});
-//  // The marker, positioned at Uluru
-//  var marker = new google.maps.Marker({ position: address, map: map});
-//}
 $(document).ready(function () {
-    var geocoder;
-    var map;
-    var address = "San Diego, CA";
+    var url = 'https://aaa:44353/Branches/Details/2';
+    $('.fb-share-button').attr('data-href', url);
+
+    function renderMap() {
+        debugger;
+
+        var geocoder;
+        debugger;
+        var address = document.getElementById("address").innerHTML;;
+        var map;
+
         debugger;
         geocoder = new google.maps.Geocoder();
         var latlng = new google.maps.LatLng(-34.397, 150.644);
         var myOptions = {
-            zoom: 8,
+            zoom: 15,
             center: latlng,
             mapTypeControl: true,
             mapTypeControlOptions: { style: google.maps.MapTypeControlStyle.DROPDOWN_MENU },
@@ -42,13 +35,13 @@ $(document).ready(function () {
                 if (status == google.maps.GeocoderStatus.OK) {
                     if (status != google.maps.GeocoderStatus.ZERO_RESULTS) {
                         map.setCenter(results[0].geometry.location);
-    
+
                         var infowindow = new google.maps.InfoWindow(
                             {
                                 content: '<b>' + address + '</b>',
                                 size: new google.maps.Size(150, 50)
                             });
-    
+
                         var marker = new google.maps.Marker({
                             position: results[0].geometry.location,
                             map: map,
@@ -57,7 +50,7 @@ $(document).ready(function () {
                         google.maps.event.addListener(marker, 'click', function () {
                             infowindow.open(map, marker);
                         });
-    
+
                     } else {
                         alert("No results found");
                     }
@@ -65,11 +58,10 @@ $(document).ready(function () {
                     alert("Geocode was not successful for the following reason: " + status);
                 }
             });
-        
-    }
-});
 
-function getCurrentUrl() {
-    return document.URL;
-}
+        }
+    }
+
+    renderMap();
+});
 

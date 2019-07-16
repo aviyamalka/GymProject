@@ -8,50 +8,51 @@
 <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-3.3.1.min.js"></script>
 <script src="~/js/Branches.js"></script>
 <script async defer
-        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyACzJGJ29m5yDJFZuccRQ8Yft7F29PEar0">
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDq8UmDFpt_3cyT3e74ubQRSKuXXfaBDjQ">
 </script>
 <script async defer crossorigin="anonymous" src="https://connect.facebook.net/he_IL/sdk.js#xfbml=1&version=v3.3"></script>
-<body>
-    <div class="fb-share-button" data-href=getCurrentUrl()  data-layout="button_count" data-size="large"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">שתף/שתפי</a></div>
+<script src="https://kit.fontawesome.com/c83c70cb91.js"></script>
+
+<body onload="">
+    <div class="fb-share-button" data-layout="button_count" data-size="large"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">שתף/שתפי</a></div>
+    <div id="address" style="display:none">
+        @Model.BranchAddress.Street.ToString() @Model.BranchAddress.Number.ToString() @Model.BranchAddress.City.ToString()
+    </div>
     <div class="text-img-container">
         @*<img class="top-img" src="~/images/brancheDetails.jpg" />*@
-        <img class="top-img" src="~/images/5767535610_4fd38c7a17_o.jpg" />
+        <img class="top-img" src="@Model.ImagePath" />
         <div class="img-text"> ברוכים הבאים לסניף @Html.DisplayFor(model => model.Name)</div>
     </div>
-    <div class="headline">מחפש חדר כושר ב @Html.DisplayFor(model => model.BranchAddress.City)</div>
-    <div>גו אקטיב @Html.DisplayFor(model => model.Name)</div>
-    <div>
-        <hr />
-        <dl class="dl-horizontal">
-            <dt>
-                @Html.DisplayNameFor(model => model.Name)
-            </dt>
-            <dd>
-                @Html.DisplayFor(model => model.Name)
-            </dd>
-            <dt>
-                @Html.DisplayNameFor(model => model.Phone)
-            </dt>
-            <dd>
-                @Html.DisplayFor(model => model.Phone)
-            </dd>
-            <dt>
-                @Html.DisplayNameFor(model => model.StartTime)
-            </dt>
-            <dd>
-                @Html.DisplayFor(model => model.StartTime)
-            </dd>
-            <dt>
-                @Html.DisplayNameFor(model => model.EndTime)
-            </dt>
-            <dd>
-                @Html.DisplayFor(model => model.EndTime)
-            </dd>
-            <dd>
-                @Html.DisplayFor(model => model.IsBabySitter)
-            </dd>
-        </dl>
-    </div>
+    <div class="title text-center headline">מחפש חדר כושר ב<span>@Html.DisplayFor(model => model.BranchAddress.City)</span>?</div>
+    <div class="title text-center">גו אקטיב @Html.DisplayFor(model => model.Name)</div>
+    <section class="details">
+        <div class="container">
+            <div class="club-details-box">
+                <div class="title font-family text-center g-h4">פרטי המועדון</div>
+                <div class="row">
+                    <div class="col-md-4">
+                        <p style="@(Model.IsBabySitter ? "display:block" : "display:none")"><i class="icon fas fa-baby-carriage"></i> שרותי בייביסיטר חינם</p>
+                    </div>
+                    <div class="col-md-4">
+                        <p><i class="icon fas fa-phone"></i> @Html.DisplayFor(model => model.Phone)</p>
+                        <p>
+                            <i class="icon fas fa-map-marker-alt"></i>  @Html.DisplayFor(model => model.BranchAddress.Street)  @Html.DisplayFor(model => model.BranchAddress.Number)  @Html.DisplayFor(model => model.BranchAddress.City)
+
+                        </p>
+                    </div>
+                    <div class="col-md-4">
+                        <p class="font-family g-h4">שעות הפתיחה:</p>
+                        <p> א'-ה' @Html.DisplayFor(model => model.EndTime) - @Html.DisplayFor(model => model.StartTime)  </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+
+   
 
     <!--The div element for the map -->
     <div id="map" onload="convertAddress(model.Address)"></div>
