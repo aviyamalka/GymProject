@@ -47,9 +47,5 @@ namespace GymProject.Controllers
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
-        public IActionResult tnxpage()
-        {
-            return View();
-        }
     }
 }

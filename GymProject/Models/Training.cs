@@ -10,6 +10,8 @@ namespace GymProject.Models
         public int TrainingId { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
+        public string shortDescription { get; set; }
+        public string icon { get; set; }
         public string VideoUrl { get; set; }
         public ICollection<Lesson> Lessons { get; set; }
     }
