@@ -49,4 +49,8 @@
     <PackageReference Include="System.Linq.Dynamic.3.5" Version="1.0.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Areas\Identity\Services\" />
+  </ItemGroup>
+
 </Project>

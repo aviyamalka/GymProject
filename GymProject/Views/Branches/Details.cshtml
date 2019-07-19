@@ -3,16 +3,22 @@
 @{
     ViewData["Title"] = "Details";
 }
-<link rel="stylesheet" href="~/css/GlobalStyle.css" />5u0
+<link rel="stylesheet" href="~/css/GlobalStyle.css" />
 <link rel="stylesheet" href="~/css/Branches.css" />
 <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-3.3.1.min.js"></script>
 <script src="~/js/Branches.js"></script>
 <script async defer
-        src="https://maps.googleapis.com/maps/api/js?key=">
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDq8UmDFpt_3cyT3e74ubQRSKuXXfaBDjQ">
 </script>
 <script async defer crossorigin="anonymous" src="https://connect.facebook.net/he_IL/sdk.js#xfbml=1&version=v3.3"></script>
 <script src="https://kit.fontawesome.com/c83c70cb91.js"></script>
+<meta property="og:url" content="http://www.nytimes.com/2015/02/19/arts/international/when-great-minds-dont-think-alike.html" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="When Great Minds Don’t Think Alike" />
+<meta property="og:description" content="How much does culture influence creative thinking?" />
 
+
+<meta property="og:image" content="http://static01.nyt.com/images/2015/02/19/arts/international/19iht-btnumbers19A/19iht-btnumbers19A-facebookJumbo-v2.jpg" />
 <body onload="">
     <div class="fb-share-button" data-layout="button_count" data-size="large"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">שתף/שתפי</a></div>
     <div id="address" style="display:none">
@@ -52,7 +58,7 @@
 
 
 
-   
+
 
     <!--The div element for the map -->
     <div id="map" onload="convertAddress(model.Address)"></div>
