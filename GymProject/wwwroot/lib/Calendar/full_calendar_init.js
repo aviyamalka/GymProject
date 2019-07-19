@@ -22,11 +22,26 @@
         },
     isRTL:true,
         eventClick: function (info) {
-            info.jsEvent.preventDefault(); // don't let the browser navigate
-
-            if (info.event.url) {
-                window.open(info.event.url);
-            }
+            info.jsEvent.preventDefault();
+            debugger;
+            $('#modalTitle').html(info.event.title);
+            $('#modalBody').html(info.event.description);
+            $('#eventUrl').attr('href', info.event.url);
+            $('#regisBtn').click(function () {
+                debugger;
+                DbConnection.registerToLesson(1, 1);
+            });
+            $('#fullCalModal').modal();
+        
+            
+            //$('#subject').html(info.event.title);
+            //$('#startTime').html(info.event.start + " :שעת התחלה");
+            //$("#recordUrl").attr("href", info.event.url);
+            //$("#recordUrl").attr("target", "_blank");
+            //$(".modal-footer").attr('dir', 'rtl');
+            //$('#endTime').html(info.event.end ? info.event.end + " :שעת סיום" : null);
+            //$('#myModal').modal();
+        
         },
         views: {
             dayGrid: {
