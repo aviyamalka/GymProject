@@ -6,7 +6,6 @@
         plugins: ['dayGrid', 'timegrid', 'list'],
         events: DbConnection.getAllLessons()
     , eventDataTransform: function (obj) {
-        debugger;
         var event = {};
        // event.id = 1;
         event.title = obj.branchName + "-" + obj.trainningName;
@@ -23,12 +22,10 @@
     isRTL:true,
         eventClick: function (info) {
             info.jsEvent.preventDefault();
-            debugger;
             $('#modalTitle').html(info.event.title);
             $('#modalBody').html(info.event.description);
             $('#eventUrl').attr('href', info.event.url);
             $('#regisBtn').click(function () {
-                debugger;
                 DbConnection.registerToLesson(1, 1);
             });
             $('#fullCalModal').modal();

@@ -1,5 +1,4 @@
 ﻿var registerToLesson = new function (UserId, LessonId) {
-    debugger;
     var controllerURL = '/Controlers/LessonsControlller/RegisterToLesson';
     var params = {
         UserId: UserId,
