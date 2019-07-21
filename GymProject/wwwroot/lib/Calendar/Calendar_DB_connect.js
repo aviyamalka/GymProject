@@ -1,6 +1,5 @@
 ﻿(function (DbConnection) {
     DbConnection.getResultsFromServer = function (url, data, isAsync) {
-        debugger;
         var res;
         isAsync = typeof isAsync !== 'undefined' ? isAsync : false;
         jQuery.support.cors = true;
@@ -22,18 +21,15 @@
         return res;
     },
         DbConnection.getAllLessons = function () {
-            debugger;
             var url = "https://localhost:5001/Lessons/GetAllLessons";
             var data;
             var isAsync = false;
             var result = DbConnection.getResultsFromServer(url, data, isAsync);
             if (result !== null) {
-                debugger;
                 return result;
             }
         },
         DbConnection.registerToLesson = function (UserId, LessonId) {
-            debugger;
         var controllerURL = 'https://localhost:5001/Lessons/RegisterToLesson';
             var params = {
                 UserId: UserId,

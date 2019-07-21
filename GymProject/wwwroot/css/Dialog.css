@@ -563,10 +563,12 @@ button.ui-button::-moz-focus-inner {
     .ui-dialog .ui-dialog-titlebar {
         padding: .4em 1em;
         position: relative;
+        background-color:black;
+        color:white;
     }
 
     .ui-dialog .ui-dialog-title {
-        background-color:darkgrey;
+        background-color:black;
         float: right;
         background-size: cover;
         width: 90%;

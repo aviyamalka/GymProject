@@ -2,7 +2,54 @@
  * Start Bootstrap - Shop Homepage (https://startbootstrap.com/template-overviews/shop-homepage)
  * Copyright 2013-2019 Start Bootstrap
  * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap-shop-homepage/blob/master/LICENSE)
- */
+ 
+$green: #4CAF50;
+$tintedGreen: #a5d6a7;
+$borderGrey: #ddd;
+
+.x axis {
+    FONT-SIZE: medium;
+    
+}
+.axis {
+    font: 11px sans-serif;
+    FONT-SIZE: medium;
+}
+
+.axis path,
+.axis line {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+
+.axis text {
+    font-family: "Comic Sans MS", cursive, sans-serif;
+}
+
+rect {
+  fill: $green;
+  transition: fill .1s ease-in;
+  
+  &:hover {
+    fill: $tintedGreen;
+  }
+}
+
+.bg-line {
+  stroke: $borderGrey;
+}
+
+
+.chart div {
+    font: 10px sans-serif;
+    background-color: salmon;
+    text-align: right;
+    padding: 3px;
+    margin: 1px;
+    color: black;
+}
+
 body {
     padding-top: 56px;
     font-family: 'Open Sans Hebrew';
@@ -31,4 +78,4 @@ body {
 
 .g-card-text {
     font-size: 1.75rem;
-}
+}**/

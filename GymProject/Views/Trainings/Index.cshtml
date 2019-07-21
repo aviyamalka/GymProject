@@ -4,20 +4,18 @@
     ViewData["Title"] = "Index";
 }
 
+@*גרפים*@
+<div class="chart"></div>
 
 @*<h2>Index</h2>*@
 
-<div class="main-image">
-    <h2>"Some people want it to happen, some wish it would happen, others make it happen" (Michael Jordan)</h2>
+<div style="text-align:left;margin: 70px 0 25px 0;">
+    <a asp-action="Create">
+        <button type="button" class="btn btn-primary btn-lg" style="color:#fff;">
+            <i class="glyphicon glyphicon-plus"></i> חדש
+        </button>
+    </a>
 </div>
-
-    <div style="text-align:left;margin: 70px 0 25px 0;">
-        <a asp-action="Create">
-            <button type="button" class="btn btn-primary btn-lg" style="color:#fff;">
-                <i class="glyphicon glyphicon-plus"></i> חדש
-            </button>
-        </a>
-    </div>
 
 
     <div class="row">
@@ -26,9 +24,9 @@
         {
 
 
-            <div class="col-lg-4 col-md-6 mb-4">
-                <div class="card">
-                    <img src="~/images/@(item.icon).png"/>
+        <div class="col-lg-4 col-md-6 mb-4">
+            <div class="card">
+
                     <h4>
                         <a asp-action="Details" asp-route-id="@item.TrainingId">@Html.DisplayFor(modelItem => item.Name)</a>
                     </h4>
@@ -39,8 +37,8 @@
                         <a asp-action="Edit" asp-route-id="@item.TrainingId">עריכה</a> |
                         <a asp-action="Delete" asp-route-id="@item.TrainingId">מחיקה</a>
                     </div>
-                </div>
             </div>
+        </div>
 
         }
 
