@@ -21,7 +21,12 @@ namespace GymProject.Controllers
 
         // GET: Branches
         public async Task<IActionResult> Index()
+
         {
+            //var q = from u in _context.Branch
+            //        select u.Name;
+            //ViewBag.Bardata = "[" + string.Join(",", q.ToList()) + "]";
+
             return View(await _context.Branch.Include(b => b.BranchAddress).ToListAsync());
         }
 

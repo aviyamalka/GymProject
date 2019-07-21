@@ -2,12 +2,36 @@
 
 @{
     ViewData["Title"] = "Index";
+     
 }
 
 
+<script>
+    @*var barData= @ViewBag.data;*@
+    var barData = [
+    {
+    "section": "תל אביב",
+    "frequency": 500
+    }, {
+    "section": "חולון",
+    "frequency": 300
+    }, {
+    "section": "ירושלים",
+    "frequency": 240
+    }, {
+    "section": "רמת גן",
+    "frequency": 550
+    }, {
+    "section": "פתח תקווה",
+    "frequency": 150
+    }];
+
+</script>
+
+<div id="address"></div>
 <p>
     <a asp-action="Create">Create New</a>
-</p>
+</p>פ
 
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -20,7 +44,7 @@
 <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 <!-- Custom styles for this template -->
 <link href="css/shop-homepage.css" rel="stylesheet">
-
+<script src="~/js/Branches.js"></script>
 <body>
     <!-- Page Content -->
     <div class="container">
@@ -81,7 +105,7 @@
                     }
                 </div>
 
-               
+
                 <!-- /.row -->
             </div>
             <!-- /.col-lg-9 -->
@@ -99,5 +123,6 @@
     <!-- Bootstrap core JavaScript -->
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <h1> הסניף הפופלארי שלנו</h1>
 </body>
 

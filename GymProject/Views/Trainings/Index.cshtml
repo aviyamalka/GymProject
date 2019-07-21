@@ -4,8 +4,12 @@
     ViewData["Title"] = "Index";
 }
 
+@*גרפים*@
+<div class="chart"></div>
 
 @*<h2>Index</h2>*@
+
+
 
 <div style="text-align:left;margin: 70px 0 25px 0;">
     <a asp-action="Create">
@@ -25,16 +29,16 @@
         <div class="col-lg-4 col-md-6 mb-4">
             <div class="card">
 
-                    <h4>
-                        <a asp-action="Details" asp-route-id="@item.TrainingId">@Html.DisplayFor(modelItem => item.Name)</a>
-                    </h4>
-                    <hr />
+                <h4>
+                    <a asp-action="Details" asp-route-id="@item.TrainingId">@Html.DisplayFor(modelItem => item.Name)</a>
+                </h4>
+                <hr />
 
-                    <p>@Html.DisplayFor(modelItem => item.shortDescription)</p>
-                    <div class="options">
-                        <a asp-action="Edit" asp-route-id="@item.TrainingId">עריכה</a> |
-                        <a asp-action="Delete" asp-route-id="@item.TrainingId">מחיקה</a>
-                    </div>
+                <p>@Html.DisplayFor(modelItem => item.shortDescription)</p>
+                <div class="options">
+                    <a asp-action="Edit" asp-route-id="@item.TrainingId">עריכה</a> |
+                    <a asp-action="Delete" asp-route-id="@item.TrainingId">מחיקה</a>
+                </div>
             </div>
         </div>
 
