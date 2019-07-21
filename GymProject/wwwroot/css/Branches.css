@@ -48,3 +48,9 @@
 .icon {
     padding: 10px
 }
+.navbar {
+position:absolute;
+}
+.navbar-nav {
+    display: inline-block;
+}
