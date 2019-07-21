@@ -41,8 +41,8 @@ namespace GymProject
             //services.AddDefaultIdentity<IdentityUser>()
             //    .AddEntityFrameworkStores<ApplicationDbContext>();
 
-            services.AddIdentity<IdentityUser, IdentityRole>()
-                    // services.AddDefaultIdentity<IdentityUser>()
+            services.AddIdentity<GymProject.Models.User, IdentityRole>()
+                     //services.AddDefaultIdentity<IdentityUser>()
                     .AddEntityFrameworkStores<ApplicationDbContext>()
                     .AddDefaultTokenProviders();
 
