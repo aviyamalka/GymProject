@@ -32,21 +32,20 @@
         DbConnection.registerToLesson = function (UserId, LessonId) {
         var controllerURL = 'https://localhost:5001/Lessons/RegisterToLesson';
             var params = {
-                UserId: UserId,
-                LessonId: LessonId
+                "UserId": UserId,
+                "LessonId": LessonId
             };
             $.ajax({
                 type: "POST",
                 url: controllerURL,
                 data: params,
                 contentType: "application/json; charset=utf-8",
-                accepts: "application/json",
-                dataType: "json",
+                dataType: "application/json",
                 success: successFunc,
                 error: errorFunc
         });
         function successFunc(data, status) {
-            alert(data);
+            //alert(data);
         }
 
         function errorFunc(error) {
