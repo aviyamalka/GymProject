@@ -1,5 +1,4 @@
 ﻿var registerToLesson = new function (UserId, LessonId) {
-    debugger;
     var controllerURL = '/Controlers/LessonsControlller/RegisterToLesson';
     var params = {
         UserId: UserId,
@@ -8,9 +7,9 @@
     $.ajax({
         type: "POST",
         url: controllerURL,
-        data: params,
+        dataType: "application/json",
+        data: '{"UserId":"' + 1 + '"}',
         contentType: "application/json; charset=utf-8",
-        dataType: "json",
         success: successFunc,
         error: errorFunc
     });

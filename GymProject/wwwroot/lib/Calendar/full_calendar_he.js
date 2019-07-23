@@ -1,6 +1,6 @@
 ﻿! function (e, t) {
-    "object" == typeof exports && "object" == typeof module ? module.exports = t(require("moment"), require("fullcalendar")) : "function" == typeof define && define.amd ? define(["moment", "fullcalendar"], t) : "object" == typeof exports ? t(require("moment"), require("fullcalendar")) : t(e.moment, e.FullCalendar)
-}("undefined" != typeof self ? self : this, function (e, t) {
+    "object" === typeof exports && "object" === typeof module ? module.exports = t(require("moment"), require("fullcalendar")) : "function" === typeof define && define.amd ? define(["moment", "fullcalendar"], t) : "object" === typeof exports ? t(require("moment"), require("fullcalendar")) : t(e.moment, e.FullCalendar)
+}("undefined" !== typeof self ? self : this, function (e, t) {
     return function (e) {
         function t(r) {
             if (n[r]) return n[r].exports;

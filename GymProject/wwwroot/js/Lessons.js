@@ -1,10 +1,8 @@
 ﻿$(document).ready(function () {
-    debugger;
     function addZeroInDateTimeFormat() {
 
     }
     function IsLessonEnabled() {
-        debugger;
         $(".regRow").each(function (i, row) {
             var $row = $(row),
                 $maxReg = $row.find('p[name*="max"]'),

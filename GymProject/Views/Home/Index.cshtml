@@ -2,25 +2,67 @@
     ViewData["Title"] = "Home Page";
 }
 
+<div class="chart"></div>
 <div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="6000">
     <ol class="carousel-indicators">
         <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
         <li data-target="#myCarousel" data-slide-to="1"></li>
         <li data-target="#myCarousel" data-slide-to="2"></li>
-    </ol>
 
+    </ol>
+    <canvas id="myCanvas" width="210" height="100"  margin-right=290px; >
+        Your browser does not support the HTML5 canvas tag.
+    </canvas>
+
+    <script>
+        var c = document.getElementById("myCanvas");
+        var ctx = c.getContext("2d");
+        ctx.font = "30px Arial";
+        ctx.strokeText("ActiveYourSelf",200, 50);
+    </script>
+
+
+    <link href="~/css/Dialog.css" rel="stylesheet" />
     <div class="carousel-inner" role="listbox">
         <div class="item active">
             <img src="~/images/1.jpg" />
             <div class="carousel-caption" role="option">
 
-                <p>
+                <a class="btn btn-default" id="btnOpenDialog">
+                    חפש את המועדון המתאים עבורך
+                    <i class="fa fa-search"></i>
+                </a>
+                <div id="dialogDiv">
+                    <label for="autocomplete"> </label>
+                    <input id="autocomplete">
+                </div>
 
-                    <a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkID=525028&clcid=0x409">
-                        חפש את המועדון המתאים עבורך
-                        <i class="fa fa-search"></i>
-                    </a>
-                </p>
+                <script>
+                    $(document).ready(function () {
+                        $("#dialogDiv").dialog({
+                            autoOpen: false,
+                            modal: true,
+                            minWidth: 1000,
+                            draggable: false,
+                            width: 500,
+
+                            title: "התחל להקליד ומצא את המועדון הכי קרוב אלייך :",
+                        });
+                        $("#autocomplete").autocomplete({
+                            source: ["c++", "java", "php", "coldfusion", "javascript", "asp", "ruby"]
+                            @*<select asp-items="@(new SelectList(ViewBag.citiesLst,"-עיר-"))" class="form-control"></select>*@
+                        });
+                    });
+
+                    $("#btnOpenDialog").click(function () {
+                        $("#dialogDiv").dialog("open");
+                        $(".selector").dialog("close");
+                        $(".selector").dialog("option", "width", 500);
+
+
+
+                    });
+                </script>
             </div>
         </div>
         <div class="item">
@@ -29,11 +71,11 @@
             <div class="carousel-caption" role="option">
                 <p>
 
-                    @*<a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkID=525030&clcid=0x409">
-            חפש את המועדון המתאים עבורך
-            <i class="fa fa-search"></i>
-        </a>*@
-                    <a href="~/Views/Home/Index.cshtml">תודה</a>
+                    <a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkID=525030&clcid=0x409">
+                        חפש את המועדון המתאים עבורך
+                        <i class="fa fa-search"></i>
+                    </a>
+
                 </p>
             </div>
         </div>
@@ -70,7 +112,7 @@
                     <div class="border-box-content text-center">
                         <h3 class="mt-3 mb-0">מצטרפים אלינו ונהנים</h3>
                         <p class="mb-1">עבור כל יום בו תגיעו למועדון, תקבלו יום נוסף במתנה</p>
-                        <a class="btn-orange" target="" href="http://sop.holmesplace.co.il/june/?source=main_site&amp;medium=home_psge&amp;sub_medium=banner&amp;lp=june">להצטרפות</a>
+                        <a class="btn-orange"  href="/Home/Contact">להצטרפות</a>
                     </div>
                     <div class="border-box-image">
 
@@ -85,11 +127,9 @@
                             נסי עוד היום שיעור ניסיון חינם
 
                         </p>
-                        <a class="btn-orange" target="" href="https://xportlv.co.il/">לפרטים</a>
+                        <a class="btn-orange"  target="_self"  href ="/Home/Contact">לפרטים</a>
                     </div>
-                    <div class="border-box-image">
-
-                    </div>
+                   
                 </div>
             </div>
             <div class="col-sm-4">
@@ -100,7 +140,7 @@
                             מגוון רחב של עיסויים וטיפולי פנים
 
                         </p>
-                        <a class="btn-orange" target="" href="https://www.holmesplace.co.il/spa/">לפרטים</a>
+                        <a class="btn-orange"  href="/Home/Contact">לפרטים</a>
                     </div>
                     <div class="border-box-image">
 
@@ -145,7 +185,7 @@
                         color: #FFF;
                     }
                 </style>
-                <form id="FormInnerPage" class="form-full" action="~/Views/Home/tnxpage.cshtml" method="POST" novalidate="novalidate">
+                <form id="FormInnerPage" class="form-full" action="/Home/tnxpage" method="POST" novalidate="novalidate">
 
                     <div class="row no-gutters">
                         <div class="col-12 col-sm-auto">

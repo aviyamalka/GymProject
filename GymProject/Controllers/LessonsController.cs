@@ -201,12 +201,13 @@ namespace GymProject.Controllers
             return _context.Lesson.Any(e => e.LessonId == id);
         }
 
-        public bool RegisterToLesson(int UserId, int LessonId)
+        [HttpPost]
+        public bool RegisterToLesson([FromBody]RegisterRequest r)
         {
             try
             {
                 LessonLogic logic = new LessonLogic(_context);
-                logic.RegisterToLesson(UserId, LessonId);
+                logic.RegisterToLesson(r.UserId, r.LessonId);
                 return true;
             }
             catch
@@ -215,7 +216,7 @@ namespace GymProject.Controllers
             }
         }
 
-        public bool CancelRegistrant(int UserId, int LessonId)
+        public bool CancelRegistrant([FromBody] int UserId, [FromBody] int LessonId)
         {
             try
             {

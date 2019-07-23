@@ -7,11 +7,12 @@
     <link href='daygrid/main.css' rel='stylesheet' />
     <link href='timegrid/main.css' rel='stylesheet' />
     <link href='list/main.css' rel='stylesheet' />
-    <link href='bootstrap/main.css' rel="stylesheet" />
-
-    <script src='bootstrap/main.js'></script>
+    <link href="calendar.css" rel="stylesheet" />
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" type="text/css" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.6.1/fullcalendar.min.css" type="text/css" rel="stylesheet" />
+    <!--<link href='bootstrap/main.css' rel="stylesheet" />-->
+    <!--<script src='bootstrap/main.js'></script>-->
     <!--<script src='full_calendar_he.js'></script>-->
-    <script src='el_jquery.min.js'></script>
     <script src='Calendar_DB_connect.js'></script>
     <!--<script src='moment/main.js'></script>-->
     <script src='full_calendar_init.js'></script>
@@ -19,32 +20,34 @@
     <script src='daygrid/main.js'></script>
     <script src='timegrid/main.js'></script>
     <script src='list/main.js'></script>
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.8.2/moment.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.6.1/fullcalendar.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
     <title></title>
 </head>
 <body>
     <div id='calendar' style="text-align:right"></div>
-    <div id="myModal" class="modal" tabindex="-1" role="dialog">
-        <div class="modal-dialog" role="document">
+    <div id="fullCalModal" class="modal fade">
+        <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 id="subject" class="modal-title pull-right col-md-12"></h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                      <span aria-hidden="true">&times;</span>
-                    </button>
+                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span> <span class="sr-only">close</span></button>
+                    <h4 id="modalTitle" class="modal-title"></h4>
                 </div>
-                <div class="modal-body">
-                    <p id="startTime"></p>
-                    <p id="endTime"></p>
-                    <a href="https://docs.microsoft.com/en-us/dynamics365/customer-engagement/developer/open-forms-views-dialogs-reports-url" id="recordUrl">לחץ כאן לצפיה ברשומה</a>
+                <div id="modalBody" class="modal-body">
+                    <p>איזו פעולה ברצונך לעשות? </p>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">סגור</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">סגור</button>
+                    <button type="button" class="btn btn-default" id="regisBtn">הירשם</button>
+                    <button type="button" class="btn btn-default">בטל הרשמה</button>
+                    <a class="btn btn-primary" id="eventUrl" target="_blank">צפה בפרטי השיעור</a>
                 </div>
             </div>
         </div>
     </div>
     <!--<script>
-        debugger;
         document.addEventListener('DOMContentLoaded', function () {
             var calendarEl = document.getElementById('calendar');
 
@@ -95,7 +98,6 @@
             calendar.render();
         });
         $(function () {
-            debugger;
             DbConnection.getAllLessons();
         });
 
