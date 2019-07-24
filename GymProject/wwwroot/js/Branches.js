@@ -86,19 +86,20 @@ $(document).ready(function () {
         .attr('y1', line3Y)
         .attr('y2', line3Y);
 
-    var line4Y = height * 0.75;
-    svg.append('line')
-        .attr('class', 'bg-line')
-        //.style("stroke", "black")
-        .attr('x1', 0)
-        .attr('x2', width)
-        .attr('y1', line4Y)
-        .attr('y2', line4Y);
-});
+var line4Y = height * 0.75;
+svg.append('line')
+    .attr('class', 'bg-line')
+    //.style("stroke", "black")
+    .attr('x1', 0)
+    .attr('x2', width)
+    .attr('y1', line4Y)
+    .attr('y2', line4Y);
 
-$(document).ready(function () {
-    var url = 'https://aaa:44353/Branches/Details/2';
-    $('.fb-share-button').attr('data-href', url);
+
+
+    $(document).ready(function () {
+        var url = 'https://aaa:44353/Branches/Details/2';
+        $('.fb-share-button').attr('data-href', url);
 
     function renderMap() {
         var geocoder;
@@ -117,35 +118,35 @@ $(document).ready(function () {
         map = new google.maps.Map(document.getElementById("map"), myOptions);
         if (geocoder) {
             geocoder.geocode({ 'address': address }, function (results, status) {
-                if (status === google.maps.GeocoderStatus.OK) {
-                    if (status !== google.maps.GeocoderStatus.ZERO_RESULTS) {
+                if (status == google.maps.GeocoderStatus.OK) {
+                    if (status != google.maps.GeocoderStatus.ZERO_RESULTS) {
                         map.setCenter(results[0].geometry.location);
 
-                        var infowindow = new google.maps.InfoWindow(
-                            {
-                                content: '<b>' + address + '</b>',
-                                size: new google.maps.Size(150, 50)
+                            var infowindow = new google.maps.InfoWindow(
+                                {
+                                    content: '<b>' + address + '</b>',
+                                    size: new google.maps.Size(150, 50)
+                                });
+
+                            var marker = new google.maps.Marker({
+                                position: results[0].geometry.location,
+                                map: map,
+                                title: address
+                            });
+                            google.maps.event.addListener(marker, 'click', function () {
+                                infowindow.open(map, marker);
                             });
 
-                        var marker = new google.maps.Marker({
-                            position: results[0].geometry.location,
-                            map: map,
-                            title: address
-                        });
-                        google.maps.event.addListener(marker, 'click', function () {
-                            infowindow.open(map, marker);
-                        });
-
+                        } else {
+                            alert("No results found");
+                        }
                     } else {
-                        alert("No results found");
+                        alert("Geocode was not successful for the following reason: " + status);
                     }
-                } else {
-                    alert("Geocode was not successful for the following reason: " + status);
-                }
-            });
+                });
 
+            }
         }
-    }
 
     renderMap();
 });

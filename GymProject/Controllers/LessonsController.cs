@@ -51,32 +51,44 @@ namespace GymProject.Controllers
 
                     }).ToList();
         }
-        public void Search(string city, DateTime date, string trainning)
-         //public async Task<IActionResult> Search(string city,DateTime date,string trainning)
-        {
+        //public void Search(string city, DateTime date, string trainning)
+        ////public async Task<IActionResult> Search(string city,DateTime date,string trainning)
+        //{
 
-            if (city != "-עיר-")
-            {
-            //    List<Lesson> result = (from less in _context.Lesson
-            //                           join bran in _context.Branch on less.LessonId equals bran.BranchId
-            //                           join add in _context.Addresses on bran.BranchAddress.AddressId equals add.AddressId
-            //                           select new Lesson
-            //                           {
-            //                               LessonId = less.LessonId
+        //    if (city != "-עיר-")
+        //    {
+        //        //    List<Lesson> result = (from less in _context.Lesson
+        //        //                           join bran in _context.Branch on less.LessonId equals bran.BranchId
+        //        //                           join add in _context.Addresses on bran.BranchAddress.AddressId equals add.AddressId
+        //        //                           select new Lesson
+        //        //                           {
+        //        //                               LessonId = less.LessonId
 
-            //                           }).ToList();
-            }
-            else
-            {
+        //        //                           }).ToList();
+        //    }
+        //    else
+        //    {
 
-            }
-            if (trainning!="-אימון-")
-            {
+        //    }
+        //    if (trainning != "-אימון-")
+        //    {
 
-            }
-            
-        }
+        //    }
+
+        //}
         // GET: Lessons/Details/5
+        //public async Task<IActionResult> SearchFunc(string city, string trainning, DateTime date)
+        //{
+        //    var result = from d in _context.searchRes
+        //                 where (d.city == city && d.Name == trainning && d.StartTime == date)
+        //                 select d;
+        //    return View(await result.ToListAsync());          
+
+                        
+        //}
+
+
+
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
