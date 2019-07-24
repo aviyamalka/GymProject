@@ -1,0 +1,59 @@
+﻿
+.banner-small {
+    min-height: 520px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: relative;
+    margin-bottom: 13px;
+    background-position: center center;
+    display: block;
+    font-family: cursive;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #212529;
+    text-align: right;
+    box-sizing: border-box;
+    margin-top: 45px;
+}
+.font-bold text-uppercase {
+    margin-top: 0;
+}
+h1 {
+    font-size: larger;
+    font-weight: 800;
+    line-height: 6.2;
+    color: black;
+    display: block;
+    font-size: 2em;
+    text-align: center !important;
+    font-size: 48px;
+    /*margin-bottom: -10px;*/
+    margin-top: 267px;
+}
+.row {
+    margin-right: -15px;
+    margin-left: -15px;
+    padding-left: 464px;
+}
+label {
+    font-size: 22px;
+    font-family: cursive;
+    display: inline-block;
+    max-width: 100%;
+    margin-bottom: 5px;
+    font-weight: bolder;
+}
+
+.btn-default {
+    
+    color: white;
+    background-color:black;
+    border-color:black;
+}
+
+
+a {
+    color: #333;
+    font-family: cursive;
+}
