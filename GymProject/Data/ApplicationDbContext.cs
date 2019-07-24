@@ -7,13 +7,13 @@ using Microsoft.EntityFrameworkCore;
 
 namespace GymProject.Data
 {
-    public class ApplicationDbContext : IdentityDbContext
+    public class ApplicationDbContext : IdentityDbContext<GymUser>//CustomRole, string, IdentityUserLogin, IdentityUserRole, IdentityUserClaim
     {
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options)
         {
         }
-        public DbSet<User> Users { get; set; }
+        public  DbSet<GymUser> GymUsers { get; set; }
         public DbSet<Address> Addresses { get; set; }
         public DbSet<Lesson> Lesson { get; set; }
         public DbSet<Branch> Branch { get; set; }

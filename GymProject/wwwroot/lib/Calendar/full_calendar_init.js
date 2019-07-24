@@ -26,7 +26,7 @@
             $('#modalBody').html(info.event.description);
             $('#eventUrl').attr('href', info.event.url);
             $('#regisBtn').click(function () {
-                DbConnection.registerToLesson(1, 1);
+                DbConnection.registerToLesson(2, 1);
             });
             $('#fullCalModal').modal();
         

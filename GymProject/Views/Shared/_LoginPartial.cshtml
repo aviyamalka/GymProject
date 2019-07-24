@@ -1,7 +1,7 @@
 @using Microsoft.AspNetCore.Identity
 @*yaelf: change to class user*@
-@inject SignInManager<User> SignInManager
-@inject UserManager<User> UserManager
+@inject SignInManager<GymUser> SignInManager
+@inject UserManager<GymUser> UserManager
 
 
 @if (SignInManager.IsSignedIn(User))
