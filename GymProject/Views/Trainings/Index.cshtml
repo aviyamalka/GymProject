@@ -9,121 +9,157 @@
 
 <div class="main-image">
     <h2>"Some people want it to happen, some wish it would happen, others make it happen" (Michael Jordan)</h2>
-</div>  
+</div>
 
-    <div style="text-align:left;margin: 70px 0 25px 0;">
-        <a asp-action="Create">
-            <button type="button" class="btn btn-primary btn-lg" style="color:#fff;">
-                <i class="glyphicon glyphicon-plus"></i> חדש
-            </button>
-        </a>
-    </div>
-
-
-    <div class="row">
-
-        @foreach (var item in Model)
-        {
+<div style="text-align:left;margin: 70px 0 25px 0;">
+    <a asp-action="Create">
+        <button type="button" class="btn btn-primary btn-lg" style="color:#fff;">
+            <i class="glyphicon glyphicon-plus"></i> חדש
+        </button>
+    </a>
+</div>
 
 
-            <div class="col-lg-4 col-md-6">
-                <div class="card">
-                    <img src="~/images/@(item.icon).png"/>
-                    <h4>
-                        <a asp-action="Details" asp-route-id="@item.TrainingId">@Html.DisplayFor(modelItem => item.Name)</a>
-                    </h4>
-                    <hr />
+<div class="row">
 
-                    <p>@Html.DisplayFor(modelItem => item.shortDescription)</p>
-                    <div class="options">
-                        <a asp-action="Edit" asp-route-id="@item.TrainingId">עריכה</a> |
-                        <a asp-action="Delete" asp-route-id="@item.TrainingId">מחיקה</a>
-                    </div>
+    @foreach (var item in Model)
+    {
+
+
+        <div class="col-lg-4 col-md-6">
+            <div class="card">
+                <img src="~/images/@(item.icon).png" />
+                <h4>
+                    <a asp-action="Details" asp-route-id="@item.TrainingId">@Html.DisplayFor(modelItem => item.Name)</a>
+                </h4>
+                <hr />
+
+                <p>@Html.DisplayFor(modelItem => item.shortDescription)</p>
+                <div class="options">
+                    <a asp-action="Edit" asp-route-id="@item.TrainingId">עריכה</a> |
+                    <a asp-action="Delete" asp-route-id="@item.TrainingId">מחיקה</a>
                 </div>
-            </div>
-
-        }
-
-
-    </div>
-    <hr />
-
-
-    <link href="~/css/gym.css" rel="stylesheet" />
-
-    <link href="~/css/form.css" rel="stylesheet" />
-    <script src="~/lib/jquery/dist/jquery.js"></script>
-    <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
-
-
-    <!-- Custom styles for training page -->
-    <link href="~/css/training.css" rel="stylesheet">
-    <!-- ADD GOOGLE FONT FOR `Assistant` FONT -->
-    <link href="https://fonts.googleapis.com/css?family=Assistant&display=swap" rel="stylesheet">
-
-
-
-    <section class="appointment-content appointment-content-red">
-        <div class="container ">
-            <div class="appointment-content-inner">
-                <div class="row">
-                    <div class="col-12 text-center">
-                        <h3 class="mb-3">לפגישת היכרות והצטרפות השאירו פרטים</h3>
-                        <p>אנא מלאו את הפרטים הבאים ונציג יחזור אליכם בהקדם</p>
-                    </div>
-                </div>
-                <style>
-                    .error {
-                        color: #FFF;
-                    }
-                </style>
-                <form id="FormInnerPage" class="form-full" action="~/Views/Home/tnxpage.cshtml" method="POST" novalidate="novalidate">
-
-                    <div class="row no-gutters">
-                        <div class="col-12 col-sm-auto">
-                            <div class="form-group">
-                                <input class="form-control" name="fullname" type="text" placeholder="שם מלא*">
-                            </div>
-                        </div>
-                        <div class="col-12 col-sm-auto">
-                            <div class="form-group">
-                                <input class="form-control" name="phone" type="text" placeholder="טלפון*">
-                            </div>
-                        </div>
-                        <div class="col-12 col-sm-auto">
-                            <div class="form-group">
-                                <input class="form-control" name="email" type="text" placeholder="דוא”ל">
-                            </div>
-                        </div>
-                        <div class="col-12 col-sm-auto">
-                            <div class="form-group">
-                                <select class="form-control" name="club">
-                                    <option disabled="" selected="">בחר סניף*</option>
-
-                                </select>
-                            </div>
-                        </div>
-                        <div class="col-12 col-sm-auto">
-                            <div class="form-group">
-                                <button type="submit" class="btn-black ContactFormClubSubmit">שלח</button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-sm-12">
-                            <div class="form-group">
-                                <label class="custom-checkbox" for="terms-inner">
-                                    <input type="checkbox" value="1" name="terms" class="form-check-input" id="terms-inner">
-                                    <span class="checkmark"></span>
-                                    נא עדכנו אותי על מבצעים והטבות בסמס, מייל וכו'
-                                </label>
-                            </div>
-                        </div>
-                    </div>
-                </form>
             </div>
         </div>
-        <h2 class="footer-heading">One life.Live it well.</h2>
-    </section>
+
+    }
 
 
+</div>
+<hr />
+
+
+
+<link href="~/css/gym.css" rel="stylesheet" />
+
+<link href="~/css/form.css" rel="stylesheet" />
+<script src="~/lib/jquery/dist/jquery.js"></script>
+<script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
+
+
+<!-- Custom styles for training page -->
+<link href="~/css/training.css" rel="stylesheet">
+<!-- ADD GOOGLE FONT FOR `Assistant` FONT -->
+<link href="https://fonts.googleapis.com/css?family=Assistant&display=swap" rel="stylesheet">
+
+
+<script>
+    @*var barData= @ViewBag.data;*@
+    var barData = [
+    {
+    "section": "תל אביב",
+    "frequency": 500
+    }, {
+    "section": "חולון",
+    "frequency": 300
+    }, {
+    "section": "ירושלים",
+    "frequency": 240
+    }, {
+    "section": "רמת גן",
+    "frequency": 550
+    }, {
+    "section": "פתח תקווה",
+    "frequency": 150
+    }];
+
+</script>
+
+
+
+@*<div id="address"></div>
+    <script src="~/js/Trainings.js"></script>*@
+
+
+
+<section class="appointment-content appointment-content-red">
+    <div class="container ">
+        <div class="appointment-content-inner">
+            <div class="row">
+                <div class="col-12 text-center">
+                    <h3 class="mb-3">לפגישת היכרות והצטרפות השאירו פרטים</h3>
+                    <p>אנא מלאו את הפרטים הבאים ונציג יחזור אליכם בהקדם</p>
+                </div>
+            </div>
+            <style>
+                .error {
+                    color: #FFF;
+                }
+            </style>
+            <form id="FormInnerPage" class="form-full" action="~/Views/Home/tnxpage.cshtml" method="POST" novalidate="novalidate">
+
+                <div class="row no-gutters">
+                    <div class="col-12 col-sm-auto">
+                        <div class="form-group">
+                            <input class="form-control" name="fullname" type="text" placeholder="שם מלא*">
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-auto">
+                        <div class="form-group">
+                            <input class="form-control" name="phone" type="text" placeholder="טלפון*">
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-auto">
+                        <div class="form-group">
+                            <input class="form-control" name="email" type="text" placeholder="דוא”ל">
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-auto">
+                        <div class="form-group">
+                            <select class="form-control" name="club">
+                                <option disabled="" selected="">בחר סניף*</option>
+
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-auto">
+                        <div class="form-group">
+                            <button type="submit" class="btn-black ContactFormClubSubmit">שלח</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="form-group">
+                            <label class="custom-checkbox" for="terms-inner">
+                                <input type="checkbox" value="1" name="terms" class="form-check-input" id="terms-inner">
+                                <span class="checkmark"></span>
+                                נא עדכנו אותי על מבצעים והטבות בסמס, מייל וכו'
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <h2 class="footer-heading">One life.Live it well.</h2>
+</section>
+
+
+<script src="https://www.amcharts.com/lib/3/amcharts.js"></script>
+<script src="https://www.amcharts.com/lib/3/serial.js"></script>
+<script src="https://www.amcharts.com/lib/3/plugins/export/export.min.js"></script>
+<link rel="stylesheet" href="https://www.amcharts.com/lib/3/plugins/export/export.css" type="text/css" media="all" />
+<script src="https://www.amcharts.com/lib/3/themes/dark.js"></script>
+<div id="chartdiv"></div>
+<script src="~/js/Trainings.js"></script>	

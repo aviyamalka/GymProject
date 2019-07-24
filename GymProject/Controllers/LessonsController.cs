@@ -77,6 +77,18 @@ namespace GymProject.Controllers
 
         //}
         // GET: Lessons/Details/5
+        //public async Task<IActionResult> SearchFunc(string city, string trainning, DateTime date)
+        //{
+        //    var result = from d in _context.searchRes
+        //                 where (d.city == city && d.Name == trainning && d.StartTime == date)
+        //                 select d;
+        //    return View(await result.ToListAsync());          
+
+                        
+        //}
+
+
+
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)

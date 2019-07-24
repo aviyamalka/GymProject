@@ -151,7 +151,8 @@ $(document).ready(function () {
     }
 
     renderMap();
-});
+    });
+
 
 //window.fbAsyncInit = function () {
 //    FB.init({
