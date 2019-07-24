@@ -23,16 +23,16 @@
     <div class="col-md-3 pull-right">
         <input type="text" class="form-control" placeholder="תאריך">
     </div>
-    <label class="btn btn-danger">
-        <input type="button" style="display:none">
+    <label class="btn-lg btn-danger">
+        <input type="button" style="display:none" id="searchBtn">
         חפש <span class="glyphicon glyphicon-search"></span>
     </label>
 </div>
 @*commented by yaelf: should be only in admin role*@
-@*<p>
-        <a asp-action="Create">Create New</a>
-    </p>*@
-<table class="table pull-right">
+<p>
+        <a asp-action="Create">הוסף שיעור חדש</a>
+    </p>
+<table class="table pull-right" hidden id="tbl">
     <thead>
         <tr>
             <th>
@@ -97,4 +97,4 @@
     </tbody>
 
 </table>
-<iframe src='~/lib/Calendar/calendar.html' width="800px" height="500px"></iframe>
+<iframe src='~/lib/Calendar/calendar.html' width="1000px" height="800px" scrolling="no" frameborder="0" id="frame"></iframe>
