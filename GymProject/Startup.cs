@@ -40,9 +40,9 @@ namespace GymProject
                     Configuration.GetConnectionString("DefaultConnection")));
             //services.AddDefaultIdentity<IdentityUser>()
             //    .AddEntityFrameworkStores<ApplicationDbContext>();
-
-            services.AddIdentity<IdentityUser, IdentityRole>()
-                    // services.AddDefaultIdentity<IdentityUser>()
+            //yael change to class user
+            services.AddIdentity<GymProject.Models.User, IdentityRole>()
+                     //services.AddDefaultIdentity<IdentityUser>()
                     .AddEntityFrameworkStores<ApplicationDbContext>()
                     .AddDefaultTokenProviders();
 
