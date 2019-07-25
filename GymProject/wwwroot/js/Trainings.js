@@ -153,7 +153,9 @@
 //        renderMap();
 //    });
 
-
+//var citiesArr = {};
+//var result;
+//for()
 var chart = AmCharts.makeChart("chartdiv", {
     "theme": "",
     "type": "serial",

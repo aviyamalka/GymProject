@@ -12,6 +12,7 @@
             data: data,
             success: function (data, textStatus, XmlHttpRequest) {
                 res = data;
+             
             },
             error: function (XmlHttpRequest, textStatus, errorThrown) {
                 res = null;
