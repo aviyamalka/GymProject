@@ -2,15 +2,16 @@
 
 namespace GymProject.Data.Migrations
 {
-    public partial class Trainings : Migration
+    public partial class fixUsers3 : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
-           
+
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
+
         }
     }
 }

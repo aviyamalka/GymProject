@@ -222,7 +222,7 @@ namespace GymProject.Controllers
                 logic.RegisterToLesson(r.UserId, r.LessonId);
                 return true;
             }
-            catch
+            catch(Exception ex)
             {
                 return false;
             }

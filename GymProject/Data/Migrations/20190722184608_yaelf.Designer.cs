@@ -10,14 +10,14 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace GymProject.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20190710170600_updateStratAndEndDate")]
-    partial class updateStratAndEndDate
+    [Migration("20190722184608_yaelf")]
+    partial class yaelf
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "2.1.11-servicing-32099")
+                .HasAnnotation("ProductVersion", "2.1.8-servicing-32085")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
@@ -47,6 +47,8 @@ namespace GymProject.Data.Migrations
                     b.Property<int?>("BranchAddressAddressId");
 
                     b.Property<TimeSpan>("EndTime");
+
+                    b.Property<string>("ImagePath");
 
                     b.Property<bool>("IsBabySitter");
 
@@ -100,13 +102,13 @@ namespace GymProject.Data.Migrations
 
                     b.Property<int?>("LessonId1");
 
-                    b.Property<int?>("UserId1");
+                    b.Property<string>("UserIdId");
 
                     b.HasKey("RegistrantId");
 
                     b.HasIndex("LessonId1");
 
-                    b.HasIndex("UserId1");
+                    b.HasIndex("UserIdId");
 
                     b.ToTable("Registrant");
                 });
@@ -123,40 +125,13 @@ namespace GymProject.Data.Migrations
 
                     b.Property<string>("VideoUrl");
 
+                    b.Property<string>("icon");
+
+                    b.Property<string>("shortDescription");
+
                     b.HasKey("TrainingId");
 
                     b.ToTable("Training");
-                });
-
-            modelBuilder.Entity("GymProject.Models.User", b =>
-                {
-                    b.Property<int>("UserId")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<int>("Age");
-
-                    b.Property<string>("Email");
-
-                    b.Property<string>("FirstName");
-
-                    b.Property<string>("LastName");
-
-                    b.Property<string>("Password");
-
-                    b.Property<string>("Phone");
-
-                    b.Property<string>("ProfieImgSrc");
-
-                    b.Property<int?>("UserAdressAddressId");
-
-                    b.Property<string>("UserName");
-
-                    b.HasKey("UserId");
-
-                    b.HasIndex("UserAdressAddressId");
-
-                    b.ToTable("Users");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
@@ -213,6 +188,9 @@ namespace GymProject.Data.Migrations
                     b.Property<string>("ConcurrencyStamp")
                         .IsConcurrencyToken();
 
+                    b.Property<string>("Discriminator")
+                        .IsRequired();
+
                     b.Property<string>("Email")
                         .HasMaxLength(256);
 
@@ -252,6 +230,8 @@ namespace GymProject.Data.Migrations
                         .HasFilter("[NormalizedUserName] IS NOT NULL");
 
                     b.ToTable("AspNetUsers");
+
+                    b.HasDiscriminator<string>("Discriminator").HasValue("IdentityUser");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<string>", b =>
@@ -276,11 +256,9 @@ namespace GymProject.Data.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<string>", b =>
                 {
-                    b.Property<string>("LoginProvider")
-                        .HasMaxLength(128);
+                    b.Property<string>("LoginProvider");
 
-                    b.Property<string>("ProviderKey")
-                        .HasMaxLength(128);
+                    b.Property<string>("ProviderKey");
 
                     b.Property<string>("ProviderDisplayName");
 
@@ -311,17 +289,42 @@ namespace GymProject.Data.Migrations
                 {
                     b.Property<string>("UserId");
 
-                    b.Property<string>("LoginProvider")
-                        .HasMaxLength(128);
+                    b.Property<string>("LoginProvider");
 
-                    b.Property<string>("Name")
-                        .HasMaxLength(128);
+                    b.Property<string>("Name");
 
                     b.Property<string>("Value");
 
                     b.HasKey("UserId", "LoginProvider", "Name");
 
                     b.ToTable("AspNetUserTokens");
+                });
+
+            modelBuilder.Entity("GymProject.Models.User", b =>
+                {
+                    b.HasBaseType("Microsoft.AspNetCore.Identity.IdentityUser");
+
+                    b.Property<int>("Age");
+
+                    b.Property<string>("FirstName");
+
+                    b.Property<string>("LastName");
+
+                    b.Property<string>("Password");
+
+                    b.Property<string>("Phone");
+
+                    b.Property<string>("ProfieImgSrc");
+
+                    b.Property<int?>("UserAdressAddressId");
+
+                    b.Property<int>("UserId");
+
+                    b.HasIndex("UserAdressAddressId");
+
+                    b.ToTable("User");
+
+                    b.HasDiscriminator().HasValue("User");
                 });
 
             modelBuilder.Entity("GymProject.Models.Branch", b =>
@@ -350,14 +353,7 @@ namespace GymProject.Data.Migrations
 
                     b.HasOne("GymProject.Models.User", "UserId")
                         .WithMany()
-                        .HasForeignKey("UserId1");
-                });
-
-            modelBuilder.Entity("GymProject.Models.User", b =>
-                {
-                    b.HasOne("GymProject.Models.Address", "UserAdress")
-                        .WithMany("Users")
-                        .HasForeignKey("UserAdressAddressId");
+                        .HasForeignKey("UserIdId");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -403,6 +399,13 @@ namespace GymProject.Data.Migrations
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade);
+                });
+
+            modelBuilder.Entity("GymProject.Models.User", b =>
+                {
+                    b.HasOne("GymProject.Models.Address", "UserAdress")
+                        .WithMany("Users")
+                        .HasForeignKey("UserAdressAddressId");
                 });
 #pragma warning restore 612, 618
         }

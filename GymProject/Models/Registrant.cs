@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -8,7 +9,9 @@ namespace GymProject.Models
     public class Registrant
     {
         public int RegistrantId{get; set;}
-        public User UserId { get; set; }
+        [Column("UserIdId")]
+        public GymUser UserId { get; set; }
+        [Column("LessonId1")]
         public Lesson LessonId { get; set; }
     }
 }

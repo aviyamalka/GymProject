@@ -1,7 +1,8 @@
 ﻿body {
     margin-top: 30px;
     direction: rtl;
-    font-family: 'Open Sans Hebrew' !important;
+    /*font-family: 'Open Sans Hebrew' !important;*/
+    font-family: 'Assistant', sans-serif;
 }
 
 table {

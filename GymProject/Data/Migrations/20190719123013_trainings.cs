@@ -11,20 +11,13 @@ namespace GymProject.Data.Migrations
                 table: "Training",
                 nullable: true);
 
-            migrationBuilder.AddColumn<string>(
-                name: "shortDescription",
-                table: "Training",
-                nullable: true);
+
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropColumn(
                 name: "icon",
-                table: "Training");
-
-            migrationBuilder.DropColumn(
-                name: "shortDescription",
                 table: "Training");
         }
     }

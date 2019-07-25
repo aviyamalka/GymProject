@@ -19,4 +19,9 @@
         });
     }
     IsLessonEnabled();
+    $("#searchBtn").click(function () {
+        debugger;
+        $("#frame").hide();
+        $("#tbl").show();
+    });
 });
