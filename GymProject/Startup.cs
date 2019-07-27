@@ -41,7 +41,7 @@ namespace GymProject
             //services.AddDefaultIdentity<IdentityUser>()
             //    .AddEntityFrameworkStores<ApplicationDbContext>();
             //yael change to class user
-            services.AddIdentity<GymProject.Models.User, IdentityRole>()
+            services.AddIdentity<GymProject.Models.GymUser, IdentityRole>()
                      //services.AddDefaultIdentity<IdentityUser>()
                     .AddEntityFrameworkStores<ApplicationDbContext>()
                     .AddDefaultTokenProviders();

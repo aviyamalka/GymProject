@@ -17,7 +17,7 @@ namespace GymProject.Logic
         public void RegisterToLesson(int UserId, int LessonId)
         {
             Lesson lsn = _context.Lesson.Where(l=>l.LessonId == LessonId).FirstOrDefault();
-            User user = _context.Users.Where(u => u.UserId == UserId).FirstOrDefault();
+            GymUser user = _context.GymUsers.Where(u => u.userId == UserId).FirstOrDefault();
             if (lsn.RegistrantMax == lsn.RegistrantNum)
             {
                 throw new Exception("The Lesson is full and you can't registered");
@@ -41,7 +41,7 @@ namespace GymProject.Logic
         public void CancelRegistrant(int UserId, int LessonId)
         {
             Lesson lsn = _context.Lesson.Where(l => l.LessonId == LessonId).FirstOrDefault();
-            User user = _context.Users.Where(u => u.UserId == UserId).FirstOrDefault();
+           GymUser user = _context.GymUsers.Where(u => u.userId == UserId).FirstOrDefault();
             try
             {
                 Registrant reg = new Registrant();

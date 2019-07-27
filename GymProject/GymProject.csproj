@@ -23,7 +23,6 @@
     <None Include="wwwroot\lib\Calendar\bootstrap\main.js" />
     <None Include="wwwroot\lib\Calendar\bootstrap\main.min.css" />
     <None Include="wwwroot\lib\Calendar\bootstrap\main.min.js" />
-    <None Include="wwwroot\lib\Calendar\calendar.css" />
     <None Include="wwwroot\lib\Calendar\calendar.html" />
     <None Include="wwwroot\lib\Calendar\Calendar_DB_connect.js" />
     <None Include="wwwroot\lib\Calendar\core\locales-all.js" />
@@ -148,6 +147,7 @@
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.App" />
     <PackageReference Include="Microsoft.AspNetCore.Razor" Version="2.1.2" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer.Design" Version="1.0.0" />
     <PackageReference Include="Microsoft.NET.Sdk.Razor" Version="2.2.0" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.1.9" PrivateAssets="All" />
     <PackageReference Include="System.Linq.Dynamic.3.5" Version="1.0.0" />

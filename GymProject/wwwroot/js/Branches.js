@@ -95,12 +95,12 @@
 //    .attr('y1', line4Y)
 //    .attr('y2', line4Y);
 
-//   }
 
 
-$(document).ready(function () {
-    var url = 'https://aaa:44353/Branches/Details/2';
-    $('.fb-share-button').attr('data-href', url);
+    $(document).ready(function () {
+        var url = 'https://aaa:44353/Branches/Details/2';
+        $('.fb-share-button').attr('data-href', url);
+
 
     function renderMap() {
         var geocoder;
@@ -153,11 +153,6 @@ $(document).ready(function () {
 });
 
 
-
-
-
-// Chart
-fnMakeD3barChart(data);
 
 //window.fbAsyncInit = function () {
 //    FB.init({
