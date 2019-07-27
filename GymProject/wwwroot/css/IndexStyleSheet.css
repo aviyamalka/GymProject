@@ -123,10 +123,8 @@
 }
 .border-box-content h3 {
     font-size: 42px;
-}
-
-.mt-3, .my-3 {
-    margin-top: 1rem !important;
+    text-shadow: 2px 2px red;
+  
 }
 
 .mb-0, .my-0 {
