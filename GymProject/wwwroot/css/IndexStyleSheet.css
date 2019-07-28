@@ -126,7 +126,7 @@
 .border-box-content p {
     font-size: 1.500em;
     color: #fff;
-    font-family: 'OpenSansHebrewLight';
+    font-family: 'Assistant', sans-serif;
 }
 
 
@@ -141,8 +141,8 @@
     left: 50%;
     margin-left: -100px;
     padding: 15px 50px;
-    font-family: 'OpenSansHebrewLight';
-    z-index:1000;
+    font-family: 'Assistant', sans-serif;
+    z-index: 1000;
 }
 
 .btn-orange {
@@ -186,16 +186,16 @@ img {
 }
 
 
-h3{
-font-family: inherit;
-font-weight: 500;
-line-height: 1.2;
-color: inherit;
+h3 {
+    font-family: 'Assistant', sans-serif;
+    font-weight: 500;
+    line-height: 1.2;
+    color: inherit;
 }
 .border-box-content p {
     font-size: 1.500em;
     color: #fff;
-    font-family: 'OpenSansHebrewLight';
+    font-family: 'Assistant', sans-serif;
 }
 .product-content.product-content-top {
     margin-top: -190px;

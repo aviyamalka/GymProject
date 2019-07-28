@@ -5,7 +5,7 @@
  */
 /*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
 html {
-    font-family: cursive;
+    font-family: 'Assistant', sans-serif;
     -ms-text-size-adjust: 100%;
 }
 
@@ -126,7 +126,7 @@ code,
 kbd,
 pre,
 samp {
-    font-family: monospace, monospace;
+    font-family: 'Assistant', sans-serif;
     font-size: 1em;
 }
 
@@ -315,7 +315,7 @@ th {
 }
 
 @font-face {
-    font-family: 'Glyphicons Halflings';
+    font-family: 'Assistant', sans-serif;
     src: url('../fonts/glyphicons-halflings-regular.eot');
     src: url('../fonts/glyphicons-halflings-regular.eot?#iefix') format('embedded-opentype'), url('../fonts/glyphicons-halflings-regular.woff2') format('woff2'), url('../fonts/glyphicons-halflings-regular.woff') format('woff'), url('../fonts/glyphicons-halflings-regular.ttf') format('truetype'), url('../fonts/glyphicons-halflings-regular.svg#glyphicons_halflingsregular') format('svg');
 }
@@ -324,7 +324,7 @@ th {
     position: relative;
     top: 1px;
     display: inline-block;
-    font-family: 'Glyphicons Halflings';
+    font-family: 'Assistant', sans-serif;
     font-style: normal;
     font-weight: normal;
     line-height: 1;
@@ -1400,7 +1400,7 @@ html {
 }
 
 body {
-    font-family: "Comic Sans MS", cursive, sans-serif;
+    font-family: 'Assistant', sans-serif;
     font-size: 18px;
     line-height: 1.42857143;
     color: #333;
@@ -1411,13 +1411,13 @@ input,
 button,
 select,
 textarea {
-    font-family: "Comic Sans MS", cursive, sans-serif;
-    font-size: inherit;
+    font-family: 'Assistant', sans-serif;
+        font-size: inherit;
     line-height: inherit;
 }
 
 a {
-    color: #337ab7;
+    color: black;
     text-decoration: none;
 }
 
@@ -1516,7 +1516,7 @@ h6,
 .h4,
 .h5,
 .h6 {
-    font-family: cursive;
+    font-family: 'Assistant', sans-serif;
     font-weight: 500;
     line-height: 1.1;
     color: inherit;
@@ -1932,7 +1932,7 @@ code,
 kbd,
 pre,
 samp {
-    font-family: cursive;
+    font-family: 'Assistant', sans-serif;
 }
 
 code {
@@ -7304,7 +7304,7 @@ button.close {
     position: absolute;
     z-index: 1070;
     display: block;
-    font-family: cursive;
+    font-family: 'Assistant', sans-serif;
     font-size: 12px;
     font-style: normal;
     font-weight: normal;
@@ -7438,7 +7438,7 @@ button.close {
     display: none;
     max-width: 276px;
     padding: 1px;
-    font-family: cursive;
+    font-family: 'Assistant', sans-serif;
     font-style: normal;
     font-weight: normal;
     line-height: 1.42857143;
@@ -7745,7 +7745,7 @@ button.close {
     .carousel-control .icon-next {
         width: 20px;
         height: 20px;
-        font-family: cursive;
+        font-family: 'Assistant', sans-serif;
         line-height: 1;
     }
 

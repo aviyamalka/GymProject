@@ -38,7 +38,7 @@ h1 {
 }
 label {
     font-size: 22px;
-    font-family: cursive;
+    font-family: 'Assistant', sans-serif;
     display: inline-block;
     max-width: 100%;
     margin-bottom: 5px;
@@ -55,5 +55,5 @@ label {
 
 a {
     color: #333;
-    font-family: cursive;
+    font-family: 'Assistant', sans-serif;
 }
