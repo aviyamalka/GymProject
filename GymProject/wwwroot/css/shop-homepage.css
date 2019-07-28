@@ -1,15 +1,14 @@
-!
- * Start Bootstrap - Shop Homepage (https://startbootstrap.com/template-overviews/shop-homepage)
- * Copyright 2013-2019 Start Bootstrap
- * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap-shop-homepage/blob/master/LICENSE)
- 
+! * Start Bootstrap - Shop Homepage (https://startbootstrap.com/template-overviews/shop-homepage)
+* Copyright 2013-2019 Start Bootstrap
+* Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap-shop-homepage/blob/master/LICENSE)
+
 $green: #4CAF50;
 $tintedGreen: #a5d6a7;
 $borderGrey: #ddd;
 
 body {
     padding-top: 56px;
-    font-family: 'Open Sans Hebrew';
+    font-family: "Comic Sans MS", cursive, sans-serif;
 }
 
 .g-col-lg-9 {
@@ -22,7 +21,7 @@ body {
 }
 
 .font-family {
-    font-family: 'Open Sans Hebrew';
+    font-family: "Comic Sans MS", cursive, sans-serif;
 }
 
 .g-h4 {
