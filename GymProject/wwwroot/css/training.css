@@ -13,7 +13,7 @@ body {
     background-size: cover;
     background-position: center center;
     margin-bottom: 30px;
-    /*margin-right:-34%;*/  
+    margin-right: -34%;
     position: relative;
     opacity: 0.9;
 }
