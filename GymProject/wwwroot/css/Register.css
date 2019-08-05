@@ -57,3 +57,13 @@ a {
     color: #333;
     font-family: 'Assistant', sans-serif;
 }
+
+.footer-heading {
+    font-size: 60px;
+    color: #b3a26c;
+    font-weight: 300;
+    margin-bottom: 14px;
+    font-family: ''Assistant', sans-serif';
+    direction: ltr;
+    text-align: center;
+}
