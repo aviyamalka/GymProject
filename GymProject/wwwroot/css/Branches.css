@@ -3,14 +3,7 @@
     height: 400px;
     background-color: grey;
 }
-.chart div {
-    font: 10px sans-serif;
-    background-color: steelblue;
-    text-align: right;
-    padding: 3px;
-    margin: 1px;
-    color: white;
-}
+
 
 
 /*.headline:before {
@@ -40,17 +33,8 @@
     margin-left: 130px;
 }
 
-.title {
-    font-size: 25px;
-    margin-bottom: 30px;
-}
+
 
 .icon {
     padding: 10px
-}
-.navbar {
-position:absolute;
-}
-.navbar-nav {
-    display: inline-block;
 }
