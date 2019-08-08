@@ -8,11 +8,11 @@ var eventsArr = {
             event.start = obj.startTime;
             event.end = obj.endTime;
             event.url = 'https://fullcalendar.io/docs/eventClick';
-            // event.color = "silver";
-            //   event.textColor = "black";
+            //event.color = "silver";
+            //event.textColor = "black";
             //  event.icon = obj.icon;
             //   event.url = obj.url;
-            //  event.editable = true;
+            //event.editable = true;
             return event;
         }
     }
@@ -126,5 +126,6 @@ $(function () {
     // calendar.fullCalendar('addEventSource', j);
     // calendar.fullCalendar('addEventSource', y);
     //calendar.find(".fc-center").prop('dir', 'rtl');
+    calendar.fullCalendar('render');
 });
 

@@ -1,20 +1,20 @@
 ﻿.fc-more {
-
 }
 
-#subject{
-    direction:rtl;
+#subject {
+    direction: rtl;
 }
 /*#rtlAlign{
     text-align:right;
 }*/
 .modal-content {
-   text-align:right;
+    text-align: right;
 }
-.tooltipevent{
-/*width:100px;
+
+.tooltipevent {
+    /*width:100px;
 height:100px;*/
-/*background-color:#dadee8;
+    /*background-color:#dadee8;
 position:absolute;
 z-index:10001;
 text-align:right;
@@ -32,9 +32,8 @@ display: inline-block;*/
     left: -25%;*/
     border-radius: 9px;
     font: 16px;
-    text-align:right;
+    text-align: right;
     /*transform: translateY(9px);*/
     /*transition: all 0.3s ease-in-out;*/
     box-shadow: 0 0 3px rgba(56, 54, 54, 0.86);
 }
-

@@ -100,7 +100,7 @@ $(document).ready(function () {
 
     function renderMap() {
         var geocoder;
-        var address = document.getElementById("address").innerHTML;;
+        var address = document.getElementById("address").innerHTML;
         var map;
         geocoder = new google.maps.Geocoder();
         var latlng = new google.maps.LatLng(-34.397, 150.644);
