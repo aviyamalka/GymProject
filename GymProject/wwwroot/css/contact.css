@@ -87,7 +87,7 @@ col-12 text-center {
 }
 
 .appointment-content-inner h3 {
-    font-family: cursive;
+    font-family: 'Assistant', sans-serif;
     font-size: 55px;
     color: white;
 }
@@ -98,7 +98,7 @@ col-12 text-center {
 
 appointment-content-inner .btn-black {
     font-size: 22px;
-    font-family: cursive;
+    font-family: 'Assistant', sans-serif;
     padding: 15px 50px;
 }
 
@@ -118,7 +118,7 @@ button:hover {
 }
 
 body {
-    font-family: "Comic Sans MS", cursive, sans-serif;
+    font-family: 'Assistant', sans-serif;
     font-size: 18px;
 }
 
@@ -155,7 +155,7 @@ article, aside, dialog, figcaption, figure, footer, header, hgroup, main, nav, s
 .appointment-content-inner .btn-black {
     padding: 15px 50px;
     font-size: 22px;
-    font-family: inherit;
+    font-family: 'Assistant', sans-serif;
 }
 
 button:hover {
@@ -168,7 +168,8 @@ element.style {
 .appointment-content-inner .btn-black {
     padding: 15px 50px;
     font-size: 22px;
-    font-family: inherit;
+    font-family: 'Assistant', sans-serif
+        ;
     outline: none;
 }
 
@@ -198,7 +199,7 @@ element.style {
 }
 
 h2 {
-    font-family: cursive;
+    font-family: 'Assistant', sans-serif;
     font-weight: 800;
     line-height: 1.1;
     color: inherit;
@@ -216,7 +217,7 @@ h2 {
     color: black;
     font-weight: 300;
     margin-bottom: 14px;
-    font-family: 'OpenSansHebrewLight';
+    font-family: 'Assistant', sans-serif;
     direction: ltr;
     text-align: center;
 }

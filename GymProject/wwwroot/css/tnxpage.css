@@ -8,14 +8,13 @@
     margin-bottom: 50px;
     background-position: center center;
     display: block;
-    font-family: cursive;
+    font-family: 'Assistant', sans-serif;
     font-size: 16px;
     font-weight: 400;
     line-height: 1.5;
     color: #212529;
     text-align: right;
     box-sizing: border-box;
-   
 }
 
 
@@ -32,7 +31,7 @@
 }
 
 h2 {
-    font-family: cursive;
+    font-family: 'Assistant', sans-serif;
     font-weight: 800;
     line-height: 1.1;
     color: inherit;

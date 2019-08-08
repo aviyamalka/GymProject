@@ -1,56 +1,14 @@
-!
- * Start Bootstrap - Shop Homepage (https://startbootstrap.com/template-overviews/shop-homepage)
- * Copyright 2013-2019 Start Bootstrap
- * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap-shop-homepage/blob/master/LICENSE)
- 
+! * Start Bootstrap - Shop Homepage (https://startbootstrap.com/template-overviews/shop-homepage)
+* Copyright 2013-2019 Start Bootstrap
+* Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap-shop-homepage/blob/master/LICENSE)
+
 $green: #4CAF50;
 $tintedGreen: #a5d6a7;
 $borderGrey: #ddd;
 
-.x axis {
-    FONT-SIZE: medium;
-    
-}
-.axis {
-    font: 11px sans-serif;
-    FONT-SIZE: medium;
-}
-
-.axis path,
-.axis line {
-  fill: none;
-  stroke: #000;
-  shape-rendering: crispEdges;
-}
-
-.axis text {
-    font-family: "Comic Sans MS", cursive, sans-serif;
-}
-
-rect {
-  fill: $green;
-  transition: fill .1s ease-in;
-  
-  &:hover {
-    fill: $tintedGreen;
-  }
-}
-
-
-
-
-.chart div {
-    font: 10px sans-serif;
-    background-color: salmon;
-    text-align: right;
-    padding: 3px;
-    margin: 1px;
-    color: black;
-}
-
 body {
     padding-top: 56px;
-    font-family: 'Open Sans Hebrew';
+    font-family: 'Assistant', sans-serif;
 }
 
 .g-col-lg-9 {
@@ -63,7 +21,7 @@ body {
 }
 
 .font-family {
-    font-family: 'Open Sans Hebrew';
+    font-family: 'Assistant', sans-serif;
 }
 
 .g-h4 {
@@ -76,4 +34,64 @@ body {
 
 .g-card-text {
     font-size: 1.75rem;
+}
+.bar {
+    fill: #5cb85c;
+}
+
+    .bar:hover {
+        fill: green;
+    }
+
+.barText {
+    fill: white;
+    font: 10px sans-serif;
+    /*text-anchor: end;*/
+}
+
+svg {
+    border: 1px solid black;
+}
+
+.axis {
+    font: 10px sans-serif;
+}
+
+    .axis path,
+    .axis line {
+        fill: none;
+        stroke: #000;
+        shape-rendering: crispEdges;
+    }
+
+.y.axis path {
+    display: none;
+}
+
+div.tooltip {
+    position: absolute;
+    top: 70px;
+    left: 100px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    border: 2px solid green;
+    background: #fff;
+    color: black;
+    padding: 10px;
+    width: 250px;
+    font-size: 12px;
+    z-index: 10;
+    word-wrap: break-word;
+}
+
+.tooltip .title {
+    font-size: 13px;
+}
+
+.tooltip .name {
+    font-weight: bold;
+}
+
+.tooltip .value {
+    /*font-weight: bold;*/
 }

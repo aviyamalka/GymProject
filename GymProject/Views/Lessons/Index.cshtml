@@ -4,6 +4,15 @@
     ViewData["Title"] = "חיפוש  שיעור";
 }
 <link rel="stylesheet" href="~/css/GlobalStyle.css" />
+<link href="~/css/gym.css" rel="stylesheet" />
+
+<link href="~/css/form.css" rel="stylesheet" />
+
+
+
+
+
+
 <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-3.3.1.min.js"></script>
 <script src="~/js/Lessons.js"></script>
 <h2>חיפוש  שיעור</h2>
@@ -30,8 +39,8 @@
 </div>
 @*commented by yaelf: should be only in admin role*@
 <p>
-        <a asp-action="Create">הוסף שיעור חדש</a>
-    </p>
+    <a asp-action="Create">הוסף שיעור חדש</a>
+</p>
 <table class="table pull-right" hidden id="tbl">
     <thead>
         <tr>
