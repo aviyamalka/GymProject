@@ -1,20 +1,17 @@
-﻿<!DOCTYPE html>
-<html>
+﻿<html>
 <head>
     <title>Calendar Test</title>
-    <meta charset="utf-8" />
-    <!--<link href="../WebResources/el_bootstrap.css" rel="stylesheet" />
-    <link href="../WebResources/el_fullcalendar.css" rel="stylesheet" />
-    <link href="../WebResources/el_fullcalendar_styles.css" rel="stylesheet" />
-    <link href="../WebResources/el_fullcalendar_print.css" rel="stylesheet" media="print" />-->
-    <link href="el_bootstrap.min.css" rel="stylesheet" />
-    <link href="el_fullcalendar.css" rel="stylesheet" />
-    <link href="el_fullcalendar_print.css" rel="stylesheet" />
-    <link href="el_fullcalendar_styles.css" rel="stylesheet" />
+    <meta charset="utf-8">
+    <link href="el_bootstrap.min.css" rel="stylesheet">
+    <link href="el_fullcalendar.css" rel="stylesheet">
+    <link href="el_fullcalendar_styles.css" rel="stylesheet">
+    <link href="el_fullcalendar_print.css" rel="stylesheet" media="print">
+
+    <meta>
 </head>
-<body>
+<body style="direction: rtl; overflow-wrap: break-word;">
     <div id="calendarParent" style="height: 100%; width: 100%;">
-        <div id='calendar'></div>
+        <div id="calendar"></div>
     </div>
     <div id="myModal" class="modal" tabindex="-1" role="dialog">
         <div class="modal-dialog" role="document">
@@ -28,7 +25,7 @@
                 <div class="modal-body">
                     <p id="startTime"></p>
                     <p id="endTime"></p>
-                    <a href="https://docs.microsoft.com/en-us/dynamics365/customer-engagement/developer/open-forms-views-dialogs-reports-url" id="recordUrl">לחץ כאן לצפיה בפרטי השיעור</a>
+                    <a href="https://docs.microsoft.com/en-us/dynamics365/customer-engagement/developer/open-forms-views-dialogs-reports-url" id="recordUrl">לחץ כאן לצפיה ברשומה</a>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">סגור</button>
@@ -37,8 +34,7 @@
         </div>
     </div>
 
-    <!--<script src="../WebResources/ClientGlobalContext.js.aspx" type="text/javascript"></script>
-    <script src="../WebResources/el_crm_connection.js"></script>-->
+    <!--<script src="../WebResources/ClientGlobalContext.js.aspx" type="text/javascript"></script>-->
     <script src="Calendar_DB_connect.js"></script>
     <script src="el_jquery.min.js"></script>
     <script src="el_bootstrap.min.js"></script>
@@ -47,5 +43,7 @@
     <script src="full_calendar_he.js"></script>
     <script src="el_calendar_settings.js"></script>
     <script src="full_calendar_init.js"></script>
+
+
 </body>
 </html>
