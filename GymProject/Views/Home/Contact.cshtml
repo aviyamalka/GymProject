@@ -1,5 +1,6 @@
 ﻿
 <link href="~/css/contact.css" rel="stylesheet" />
+<script src="~/js/Mail.js"></script>
 
 <section class="banner-small" style="background-image:url('http://www.yokneam.biz/wp-content/uploads/%D7%97%D7%93%D7%A8-%D7%9B%D7%95%D7%A9%D7%A8-%D7%91%D7%99%D7%A7%D7%A0%D7%A2%D7%9D.jpg')">
     <div class="banner-small-caption">
@@ -29,7 +30,7 @@
                 <div class="row no-gutters">
                     <div class="col-12 col-sm-auto">
                         <div class="form-group">
-                            <input class="form-control" name="fullname" type="text" placeholder="שם מלא*">
+                            <input class="form-control" id="fullname" name="fullname" type="text" placeholder="שם מלא*">
                         </div>
                     </div>
                     <div class="col-12 col-sm-auto">
@@ -39,7 +40,7 @@
                     </div>
                     <div class="col-12 col-sm-auto">
                         <div class="form-group">
-                            <input class="form-control" name="email" type="text" placeholder="דוא”ל">
+                            <input class="form-control" id="email" name="email" type="text" placeholder="דוא”ל">
                         </div>
                     </div>
                     <div class="col-12 col-sm-auto">
@@ -52,9 +53,9 @@
                     </div>
                     <div class="col-12 col-sm-auto">
                         <div class="form-group">
-                            <a class="btn-black ContactFormClubSubmit" href="https://localhost:44353/Home/tnxpage">שלח</a>
+                            <a class="btn-black ContactFormClubSubmit" href="https://localhost:44353/Home/tnxpage" onclick="sendMail()" >שלח</a>
 
-                            @*<button type="submit" class="btn-black ContactFormClubSubmit" href="https://localhost:44353/home/tnxpage">שלח</button>*@
+                   
                         </div>
                     </div>
                 </div>
