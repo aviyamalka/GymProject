@@ -8,13 +8,21 @@
     margin-bottom: 50px;
     background-position: center center;
     display: block;
-    font-family: 'Assistant', sans-serif;
+  
     font-size: 16px;
     font-weight: 400;
     line-height: 1.5;
     color: #212529;
     text-align: right;
     box-sizing: border-box;
+}
+@font-face {
+    font-family: myFirstFont;
+    src: local('Assistant', sans-serif);
+}
+
+div {
+    font-family: myFirstFont;
 }
 
 

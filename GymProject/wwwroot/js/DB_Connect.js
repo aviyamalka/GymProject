@@ -1,5 +1,5 @@
 ﻿var registerToLesson = new function (UserId, LessonId) {
-    var controllerURL = '/Controlers/LessonsControlller/RegisterToLesson';
+    var controllerURL = '/Controlers/LessonsController/RegisterToLesson';
     var params = {
         UserId: UserId,
         LessonId: LessonId
