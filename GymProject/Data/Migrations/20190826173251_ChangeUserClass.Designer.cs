@@ -4,14 +4,16 @@ using GymProject.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace GymProject.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20190826173251_ChangeUserClass")]
+    partial class ChangeUserClass
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -100,9 +102,13 @@ namespace GymProject.Data.Migrations
 
                     b.Property<int?>("LessonId1");
 
+                    b.Property<string>("UserIdId");
+
                     b.HasKey("RegistrantId");
 
                     b.HasIndex("LessonId1");
+
+                    b.HasIndex("UserIdId");
 
                     b.ToTable("Registrant");
                 });
@@ -182,6 +188,9 @@ namespace GymProject.Data.Migrations
                     b.Property<string>("ConcurrencyStamp")
                         .IsConcurrencyToken();
 
+                    b.Property<string>("Discriminator")
+                        .IsRequired();
+
                     b.Property<string>("Email")
                         .HasMaxLength(256);
 
@@ -221,6 +230,8 @@ namespace GymProject.Data.Migrations
                         .HasFilter("[NormalizedUserName] IS NOT NULL");
 
                     b.ToTable("AspNetUsers");
+
+                    b.HasDiscriminator<string>("Discriminator").HasValue("IdentityUser");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<string>", b =>
@@ -289,6 +300,33 @@ namespace GymProject.Data.Migrations
                     b.ToTable("AspNetUserTokens");
                 });
 
+            modelBuilder.Entity("GymProject.Models.GymUser", b =>
+                {
+                    b.HasBaseType("Microsoft.AspNetCore.Identity.IdentityUser");
+
+                    b.Property<int>("Age");
+
+                    b.Property<string>("FirstName");
+
+                    b.Property<string>("LastName");
+
+                    b.Property<string>("Password");
+
+                    b.Property<string>("Phone");
+
+                    b.Property<string>("ProfieImgSrc");
+
+                    b.Property<int?>("UserAdressAddressId");
+
+                    b.Property<int>("userId");
+
+                    b.HasIndex("UserAdressAddressId");
+
+                    b.ToTable("GymUser");
+
+                    b.HasDiscriminator().HasValue("GymUser");
+                });
+
             modelBuilder.Entity("GymProject.Models.Branch", b =>
                 {
                     b.HasOne("GymProject.Models.Address", "BranchAddress")
@@ -312,6 +350,10 @@ namespace GymProject.Data.Migrations
                     b.HasOne("GymProject.Models.Lesson", "LessonId")
                         .WithMany()
                         .HasForeignKey("LessonId1");
+
+                    b.HasOne("GymProject.Models.GymUser", "UserId")
+                        .WithMany()
+                        .HasForeignKey("UserIdId");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -357,6 +399,13 @@ namespace GymProject.Data.Migrations
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade);
+                });
+
+            modelBuilder.Entity("GymProject.Models.GymUser", b =>
+                {
+                    b.HasOne("GymProject.Models.Address", "UserAdress")
+                        .WithMany("Users")
+                        .HasForeignKey("UserAdressAddressId");
                 });
 #pragma warning restore 612, 618
         }

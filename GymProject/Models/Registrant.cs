@@ -9,8 +9,8 @@ namespace GymProject.Models
     public class Registrant
     {
         public int RegistrantId{get; set;}
-        [Column("UserIdId")]
-        public GymUser UserId { get; set; }
+        //[Column("UserIdId")]
+        //public  UserId { get; set; }
         [Column("LessonId1")]
         public Lesson LessonId { get; set; }
     }
