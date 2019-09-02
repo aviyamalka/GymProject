@@ -51,6 +51,17 @@ namespace GymProject.Controllers
 
                     }).ToList();
         }
+        public dynamic GetAllLessonsGroupByBranch()
+        {
+            //return  _context.Lesson.Include(b => b.BranchId).GroupBy(br => br.BranchId).ToList();
+            return (from less in _context.Lesson
+                    group less by less.BranchId.Name into lessBranch
+                    select new 
+                    {
+                       name=lessBranch.Key,
+                       count=lessBranch.Count()
+                    }).ToList();
+        }
         //public void Search(string city, DateTime date, string trainning)
         ////public async Task<IActionResult> Search(string city,DateTime date,string trainning)
         //{
@@ -244,12 +255,12 @@ namespace GymProject.Controllers
             }
         }
 
-        public bool CancelRegistrant([FromBody] int UserId, [FromBody] int LessonId)
+        public bool CancelRegistrant([FromBody]RegisterRequest r)
         {
             try
             {
                 LessonLogic logic = new LessonLogic(_context);
-                logic.CancelRegistrant(UserId, LessonId);
+                logic.CancelRegistrant(r.UserId, r.LessonId);
                 return true;
             }
             catch

@@ -43,8 +43,10 @@ namespace GymProject.Controllers
 
         public IActionResult Contact()
         {
+            BussinessLogic BL = new BussinessLogic(this.cache, _context);
+            List<string> branchesLst = BL.GetBranchesNamesFromCache();
+            ViewBag.branchesLst = branchesLst;
             ViewData["Message"] = "Your contact page.";
-
             return View();
         }
 
@@ -60,8 +62,6 @@ namespace GymProject.Controllers
         //}
         public IActionResult tnxpage()
         {
-           
-
             return View();
         }
     }

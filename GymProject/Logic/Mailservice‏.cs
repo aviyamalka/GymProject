@@ -12,33 +12,22 @@ namespace GymProject.Logic
     {
         public string fullName;
         public string email;
-        public static void SendEmail(string toEmail, string subjecta, string bodya, string description)
+        public static void SendEmail(string toEmail, string subject, string messBody, string description)
         {
             try
             {
-                var fromAddress = new MailAddress("ActiveYourselfOffice@gmail.com", "efartttt");
-                var toAddress = new MailAddress("efratgr10@gmail.com", "user");
-                const string fromPassword = "Asdfg!234";
-                const string subject = "sdssss";
-                const string body = "bbbbbbbbbbb";
-
-                var smtp = new SmtpClient
+                MailMessage Mes = new MailMessage();
+                Mes.To.Add(toEmail); // הודעה ל;
+                Mes.From = new MailAddress("ActiveYourselfOffice@gmail.com", "ActiveYourSelf"); //הודעה מ
+                Mes.Subject = subject;  //נושא
+                Mes.Body = messBody; //תוכן
+                Mes.IsBodyHtml = true;  //שליחה בצורת HTML
+                var smtp = new SmtpClient("smtp.gmail.com",587)
                 {
-                    Host = "smtp.gmail.com",
-                    Port = 587,
                     EnableSsl = true,
-                    DeliveryMethod = SmtpDeliveryMethod.Network,
-                    UseDefaultCredentials = false,
-                    Credentials = new NetworkCredential(fromAddress.Address, fromPassword)
-                };
-                using (var message = new MailMessage(fromAddress, toAddress)
-                {
-                    Subject = subject,
-                    Body = body
-                })
-                {
-                    smtp.Send(message);
-                }
+                    Credentials = new NetworkCredential("ActiveYourselfOffice@gmail.com", "QWaszx!2")
+                };              
+                    smtp.Send(Mes);
             }
             catch (Exception e)
             {

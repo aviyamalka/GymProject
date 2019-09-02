@@ -9,7 +9,7 @@ namespace GymProject.Controllers
     {
        
 
-        public int UserId { get; set; }
+        public string UserId { get; set; }
 
         public int LessonId { get; set; }
 
@@ -18,7 +18,7 @@ namespace GymProject.Controllers
 
         }
 
-        public RegisterRequest(int UserId, int LessonId)
+        public RegisterRequest(string UserId, int LessonId)
         {
             this.UserId = UserId;
             this.LessonId = LessonId;

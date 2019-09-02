@@ -30,6 +30,15 @@
                 return result;
             }
         },
+        DbConnection.GetAllLessonsGroupByBranch = function () {
+        var url = "https://localhost:5001/Lessons/GetAllLessonsGroupByBranch";
+            var data;
+            var isAsync = false;
+            var result = DbConnection.getResultsFromServer(url, data, isAsync);
+            if (result !== null) {
+                return result;
+            }
+        },
         DbConnection.registerToLesson = function (UserId, LessonId) {
         var controllerURL = 'https://localhost:5001/Lessons/RegisterToLesson';
         $.ajax({
@@ -49,4 +58,23 @@
             alert('error');
         }
         }
+    DbConnection.cancelRegistration = function (UserId, LessonId) {
+        var controllerURL = 'https://localhost:5001/Lessons/CancelRegistrant';
+        $.ajax({
+            type: "POST",
+            url: controllerURL,
+            data: JSON.stringify({ "UserId": UserId, "LessonId": LessonId }),
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            success: successFunc,
+            error: errorFunc
+        });
+        function successFunc(data, status) {
+            //alert(data);
+        }
+
+        function errorFunc(error) {
+            alert('error');
+        }
+    }
 })(window.DbConnection = window.DbConnection || {});

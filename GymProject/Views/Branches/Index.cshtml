@@ -7,13 +7,14 @@
 
 <link href="css/shop-homepage.css" rel="stylesheet">
 <link href="~/css/GlobalStyle.css" rel="stylesheet">
-<script src="~/js/Branches.js"></script>
+<script src="~/lib/calendar/Calendar_DB_connect.js"></script>
 <link href="~/css/gym.css" rel="stylesheet" />
 
 <link href="~/css/form.css" rel="stylesheet" />
 
 
 <script src="~/js/BranchesMenu.js"></script>
+<script src="~/js/Donut3D.js"></script>
 <!-- Bootstrap core CSS -->
 <link href="~/lib/bootstrap/dist/js/bootstrap.min.js" rel="stylesheet">
 <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -56,8 +57,8 @@
                                 <a asp-action="Delete" asp-route-id="@item.BranchId">Delete</a>
                             </div>
                             @*<div class="card-footer">
-                                    <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
-                                </div>*@
+                                <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
+                            </div>*@
                         </div>
                     </div>
                 }
@@ -66,22 +67,11 @@
 
             <!-- /.row -->
         </div>
+        
         <!-- /.col-lg-9 -->
     </div>
-    <!-- /.row -->
-    </div>
-    <!-- /.container -->
-    <!-- Footer -->
-    @*<footer class="py-5 bg-dark">
-        <div class="container">
-            <p class="m-0 text-center text-white">Copyright &copy; Your Website 2019</p>
-        </div>*@
-    <!-- /.container -->
-    @*</footer>*@
-    <!-- Bootstrap core JavaScript -->
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <h1> הסניף הפופלארי שלנו</h1>
+    <script src="https://d3js.org/d3.v3.min.js"></script>
 
-</body>
-
+    </body>

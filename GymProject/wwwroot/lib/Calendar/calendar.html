@@ -22,13 +22,14 @@
                       <span aria-hidden="true">&times;</span>
                     </button>-->
                 </div>
-                <div class="modal-body">
-                    <p id="startTime"></p>
-                    <p id="endTime"></p>
-                    <a href="https://docs.microsoft.com/en-us/dynamics365/customer-engagement/developer/open-forms-views-dialogs-reports-url" id="recordUrl">לחץ כאן לצפיה ברשומה</a>
+                <div id="modalBody" class="modal-body">
+                    <p>איזו פעולה ברצונך לעשות? </p>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">סגור</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">סגור</button>
+                    <button type="button" class="btn btn-default" id="regisBtn">הירשם</button>
+                    <button type="button" class="btn btn-default" id="cancelBtn">בטל הרשמה</button>
+                    <a class="btn btn-primary" id="eventUrl" target="_blank">צפה בפרטי השיעור</a>
                 </div>
             </div>
         </div>
@@ -38,6 +39,7 @@
     <script src="Calendar_DB_connect.js"></script>
     <script src="el_jquery.min.js"></script>
     <script src="el_bootstrap.min.js"></script>
+    <script src="full_calendar_actions.js"></script>
     <script src="el_moment.min.js"></script>
     <script src="el_fullcalendar.js"></script>
     <script src="full_calendar_he.js"></script>

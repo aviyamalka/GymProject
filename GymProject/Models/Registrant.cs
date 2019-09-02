@@ -9,9 +9,9 @@ namespace GymProject.Models
     public class Registrant
     {
         public int RegistrantId{get; set;}
-        //[Column("UserIdId")]
-        //public  UserId { get; set; }
-        [Column("LessonId1")]
+        [Column("UserIdId")]
+        public Microsoft.AspNetCore.Identity.IdentityUser UserId { get; set; }
+    [Column("LessonId1")]
         public Lesson LessonId { get; set; }
     }
 }

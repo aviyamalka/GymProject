@@ -35,6 +35,23 @@ namespace GymProject.Logic
             cities.Insert(0, "-עיר-");//add default option 
             return cities;
         }
+        public List<string> GetBranchesNamesFromCache()
+        {
+            List<string> branchesLst = _cache.Get<List<string>>("branchesLst");
+
+            if (branchesLst == null)
+            {
+                branchesLst = GetBranchesNamesFromDB();
+                _cache.Set("branchesLst", branchesLst);
+            }
+            return branchesLst;
+        }
+        public List<string> GetBranchesNamesFromDB()
+        {
+            List<string> branches = _context.Branch.Select(b=>b.Name).Distinct().ToList();
+            branches.Insert(0, "-בחר סניף-");//add default option 
+            return branches;
+        }
         // TODO:implement function to get trainings from db and from cache
         public List<string> GetTrainingNamesFromCache()
         {
