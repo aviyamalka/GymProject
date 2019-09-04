@@ -11,42 +11,48 @@
     <h2>"Some people want it to happen, some wish it would happen, others make it happen" (Michael Jordan)</h2>
 </div>
 
-<div style="text-align:left;margin: 70px 0 25px 0;">
-    <a asp-action="Create">
-        <button type="button" class="btn btn-primary btn-lg" style="color:#fff;">
-            <i class="glyphicon glyphicon-plus"></i> חדש
-        </button>
-    </a>
-</div>
 
 
-<div class="row">
-
-    @foreach (var item in Model)
-    {
 
 
-        <div class="col-lg-4 col-md-6">
-            <div class="card">
-                <img src="~/images/@(item.icon).png" />
-                <h4>
-                    <a asp-action="Details" asp-route-id="@item.TrainingId">@Html.DisplayFor(modelItem => item.Name)</a>
-                </h4>
-                <hr />
+    <div style="text-align:left;margin: 70px 0 25px 0;">
+        <a asp-action="Create">
+            <button type="button" class="btn btn-primary btn-lg" style="color:#fff;">
+                <i class="glyphicon glyphicon-plus"></i> חדש
+            </button>
+        </a>
+    </div>
 
-                <p>@Html.DisplayFor(modelItem => item.shortDescription)</p>
-                <div class="options">
-                    <a asp-action="Edit" asp-route-id="@item.TrainingId">עריכה</a> |
-                    <a asp-action="Delete" asp-route-id="@item.TrainingId">מחיקה</a>
+
+    <div class="row">
+
+        @foreach (var item in Model)
+        {
+
+
+            <div class="col-lg-4 col-md-6">
+                <div class="card">
+                    <img src="~/images/@(item.icon).png" />
+                    <h4>
+                        <a asp-action="Details" asp-route-id="@item.TrainingId">@Html.DisplayFor(modelItem => item.Name)</a>
+                    </h4>
+                    <hr />
+
+                    <p>@Html.DisplayFor(modelItem => item.shortDescription)</p>
+                    <div class="options">
+                        <a asp-action="Edit" asp-route-id="@item.TrainingId">עריכה</a> |
+                        <a asp-action="Delete" asp-route-id="@item.TrainingId">מחיקה</a>
+                    </div>
                 </div>
             </div>
-        </div>
 
-    }
+        }
 
 
-</div>
-<hr />
+    </div>
+    <hr />
+
+
 
 
 
@@ -67,56 +73,8 @@
 
 
 
-@*<div id="address"></div>
-    <script src="~/js/Trainings.js"></script>*@
 
 
 
 
-@*<script src="https://www.amcharts.com/lib/3/amcharts.js"></script>
-    <script src="https://www.amcharts.com/lib/3/serial.js"></script>
-    <script src="https://www.amcharts.com/lib/3/plugins/export/export.min.js"></script>
-    <link rel="stylesheet" href="https://www.amcharts.com/lib/3/plugins/export/export.css" type="text/css" media="all" />
-    <script src="https://www.amcharts.com/lib/3/themes/dark.js"></script>
-    <div id="chartdiv"></div>
-    <script src="~/js/Trainings.js"></script>*@
 
-
-@*@section MetaContent
-{
-<link href="~/myStyle.css" rel="stylesheet" type="text/css" />
-<script src="~/js/jquery.validate.js"></script>
-<script src="~/js/jquery.validate.min.js"></script>
-<script src="~/js/jquery.validate.unobtrusive.js"></script>
-<script src="~/js/jquery.validate.unobtrusive.min.js"></script>
-<script src="~/js/jquery-1.8.2.js"></script>
-<script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
-<script type="text/javascript">
-    
-        window.onload = function () {
-             var chart = new CanvasJS.Chart("chartContainer", {
-        animationEnabled: true,
-        theme: "light2", // "light1", "light2", "dark1", "dark2"
-        title: {
-            text: "                 משלמים ללקוח"
-        },
-        axisY: {
-            title: ""
-                 },
-        dataPointWidth: 25,
-        data: [{
-            type: "column",
-
-            dataPoints: @Html.Raw(ViewBag.DataPoints)
-        }]
-    });
-    chart.render();
-
-        }
-
-</script>
-}
-
-<script src="~/js/Trainings.js"></script>
-
-<div id="chartContainer" style="height: 300px; width: 40%; position: inherit; left:0;text-align:right !important;"></div>*@
