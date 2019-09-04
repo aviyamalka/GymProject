@@ -36,6 +36,7 @@ namespace GymProject.Controllers
                 return true;
             }
             catch (Exception ex)
+
             {
                 return false;
             }
