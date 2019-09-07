@@ -7,15 +7,19 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using GymProject.Data;
 using GymProject.Models;
+using GymProject.Logic;
+using Microsoft.Extensions.Caching.Memory;
 
 namespace GymProject.Controllers
 {
     public class BranchesController : Controller
     {
         private readonly ApplicationDbContext _context;
+        private IMemoryCache cache;
 
-        public BranchesController(ApplicationDbContext context)
+        public BranchesController(ApplicationDbContext context, IMemoryCache cache)
         {
+            this.cache = cache;
             _context = context;
         }
 
@@ -23,10 +27,12 @@ namespace GymProject.Controllers
         public async Task<IActionResult> Index()
 
         {
+            BussinessLogic BL = new BussinessLogic(this.cache, _context);
+            List<string> citiesLst = BL.GetCitiesNamesFromCache();
             //var q = from u in _context.Branch
             //        select u.Name;
             //ViewBag.Bardata = "[" + string.Join(",", q.ToList()) + "]";
-
+            ViewBag.citiesLst = citiesLst;
             return View(await _context.Branch.Include(b => b.BranchAddress).ToListAsync());
         }
 

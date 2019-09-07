@@ -1,9 +1,16 @@
 ﻿@model IEnumerable<GymProject.Models.Branch>
+@using Microsoft.AspNetCore.Identity
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
+
+@if (SignInManager.IsSignedIn(User) && User.IsInRole("Admin"))
+{
+    <p>
+        <a asp-action="Create">הוסף סניף חדש</a>
+    </p>
+}
 
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
 
 <link href="css/shop-homepage.css" rel="stylesheet">
 <link href="~/css/GlobalStyle.css" rel="stylesheet">
@@ -11,8 +18,6 @@
 <link href="~/css/gym.css" rel="stylesheet" />
 
 <link href="~/css/form.css" rel="stylesheet" />
-
-
 <script src="~/js/BranchesMenu.js"></script>
 <script src="~/js/Donut3D.js"></script>
 <!-- Bootstrap core CSS -->
@@ -23,21 +28,46 @@
 
 <!-- Custom styles for this template -->
 
+
+
 <body>
     <!-- Page Content -->
+
+
+
+
     <div class="container">
+
         <div class="row">
-            @if (!User.Identity.IsAuthenticated)
-            {
 
-
-            }
             <div class="text-img-container">
                 @*<img class="top-img" src="~/images/brancheDetails.jpg" />*@
                 <img class="top-img" src="~/images/HHFS9.jpg" />
                 <div class="img-text">הסניפים שלנו</div>
             </div>
 
+            <div class="search row">
+                @*<h2>חיפוש  סניף</h2>*@
+                <div class="row SearchTxtBoxWrapper pull-right col-md-12">
+                    <div class="col-md-3 pull-right">
+                        <select asp-items="@(new SelectList(ViewBag.citiesLst,"-עיר-"))" class="form-control" id="citySelect"></select>
+                    </div>
+                    <div class="col-md-3 pull-right">
+                        <select id="babysitterSelect" class="form-control">
+                            <option value="True"> שרותי בייביסטר בסניף</option>
+                            <option value="False">סניף ללא שרותי בייביסטר</option>
+                        </select>
+                    </div>
+                    <div class="col-md-3 pull-right">
+                        <input type="time" id="time" class="form-control" />
+                    </div>
+                    <label class="btn-lg btn-danger" id="searchBtnLabel">
+                        <input type="button" style="display:none" id="searchBtn" onclick="searchBranch()">
+                        חפש <span class="glyphicon glyphicon-search"></span>
+                    </label>
+                </div>
+
+            </div>
 
             <div class="row">
 
@@ -53,12 +83,23 @@
                                 </h4>
                                 <h5 class="g-h5 font-family">@Html.DisplayFor(modelItem => item.BranchAddress.Street)  @Html.DisplayFor(modelItem => item.BranchAddress.Number)</h5>
                                 <p class="g-card-text card-text font-family">@Html.DisplayFor(modelItem => item.Phone)</p>
-                                <a asp-action="Edit" asp-route-id="@item.BranchId">Edit</a> |
-                                <a asp-action="Delete" asp-route-id="@item.BranchId">Delete</a>
+                                <p id="babysitter" style="display: none">@item.IsBabySitter</p>
+                                <p id="openHour" style="display: none">@item.StartTime</p>
+                                <p id="closeHour" style="display: none">@item.EndTime</p>
+                                <p id="city" style="display: none">@item.BranchAddress.City</p>
+                                @if (SignInManager.IsSignedIn(User) && User.IsInRole("Admin"))
+                                {<div>
+                                        <a asp-action="Edit" asp-route-id="@item.BranchId">Edit</a> |
+                                        <a asp-action="Delete" asp-route-id="@item.BranchId">Delete</a>
+                                    </div>
+
+                                }
+
+
                             </div>
                             @*<div class="card-footer">
-                                <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
-                            </div>*@
+                            <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
+                        </div>*@
                         </div>
                     </div>
                 }
@@ -67,11 +108,11 @@
 
             <!-- /.row -->
         </div>
-        
+
         <!-- /.col-lg-9 -->
     </div>
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
     <script src="https://d3js.org/d3.v3.min.js"></script>
 
-    </body>
+</body>
