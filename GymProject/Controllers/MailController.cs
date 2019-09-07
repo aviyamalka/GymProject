@@ -31,7 +31,7 @@ namespace GymProject.Controllers
         {
             try
             {
-                MailService.SendEmail("ActiveYourselfOffice@gmail.com", "הודעה חדשה ממשתמש" + m.fullName, "description", "");
+                MailService.SendEmail("ActiveYourselfOffice@gmail.com", "הודעה חדשה ממשתמש" + m.fullName, "תיאור"+ m.description, " ");
                 MailService.SendEmail(m.email,"פנייתך נקלטה במערכת","שלום, קיבלנו את פנייתך ,אנו מטפלים בה ונחזור אליך בהקדם. תודה והמשך יום נעים ","desc");
                 return true;
             }
