@@ -1,6 +1,5 @@
 ﻿
 
-
 /*
     MAIN IMAGE
 */
@@ -14,6 +13,7 @@
     margin-right: -34%;
     position: relative;
     opacity: 0.9;
+    max-width: 100%;
 }
 
 .main-image h2 {
