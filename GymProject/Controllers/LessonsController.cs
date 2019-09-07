@@ -103,18 +103,18 @@ namespace GymProject.Controllers
         {
 
 
-            //IEnumerable<Lesson> lesson = _context.Lesson.Include(l => l.StartTime.Date);
-            //IEnumerable<Training> training = _context.Training.Include(t => t.Name);
-            //IEnumerable<Address> address = _context.Addresses.Include(a => a.City);
+            IEnumerable<Lesson> lesson = _context.Lesson.Include(l => l.StartTime.Date);
+            IEnumerable<Training> training = _context.Training.Include(t => t.Name);
+            IEnumerable<Address> address = _context.Addresses.Include(a => a.City);
 
-           // if (city == a.city)
+            //if (city == a.city)
             //    lesson = lesson.Where(l => l.StartTime.Contains(date));
             //if (search_from != "All" && search_from != "")
-               // training = training.Where(t => t.Name.Contains(trainning));
-           // if (search_to != "All" && search_to != "")
-               // address = address.Where(a => a.City.Contains(city));
+            //    training = training.Where(t => t.Name.Contains(trainning));
+            //if (search_to != "All" && search_to != "")
+            //    address = address.Where(a => a.City.Contains(city));
 
-            //return View(lesson.ToList());
+            return View(lesson.ToList());
 
         }
 
