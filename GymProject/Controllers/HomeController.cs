@@ -23,23 +23,23 @@ namespace GymProject.Controllers
             _context = context;
         }
 
-        public async Task <IActionResult >Index()
-        {
-            BussinessLogic BL = new BussinessLogic(this.cache, _context);
-            List<string> citiesLst = BL.GetCitiesNamesFromCache();
-            List<string> traningLst = BL.GetTrainingNamesFromCache();
-            ViewBag.citiesLst = citiesLst;
-            ViewBag.traningLst = traningLst;
-            return View(await _context.Lesson.ToListAsync());
+        //public async Task <IActionResult >Index()
+        //{
+        //    BussinessLogic BL = new BussinessLogic(this.cache, _context);
+        //    List<string> citiesLst = BL.GetCitiesNamesFromCache();
+        //    List<string> traningLst = BL.GetTrainingNamesFromCache();
+        //    ViewBag.citiesLst = citiesLst;
+        //    ViewBag.traningLst = traningLst;
+        //    return View(await _context.Lesson.ToListAsync());
 
-        }
+        //}
 
-        public IActionResult About()
-        {
-            ViewData["Message"] = "Your application description page.";
+        //public IActionResult About()
+        //{
+        //    ViewData["Message"] = "Your application description page.";
 
-            return View();
-        }
+        //    return View();
+        //}
 
         public IActionResult Contact()
         {
@@ -49,6 +49,23 @@ namespace GymProject.Controllers
             ViewData["Message"] = "Your contact page.";
             return View();
         }
+        public IActionResult About()
+        {
+            BussinessLogic BL = new BussinessLogic(this.cache, _context);
+            List<string> branchesLst = BL.GetBranchesNamesFromCache();
+            ViewBag.branchesLst = branchesLst;
+            ViewData["Message"] = "Your about page.";
+            return View();
+        }
+        public IActionResult Index()
+        {
+            BussinessLogic BL = new BussinessLogic(this.cache, _context);
+            List<string> branchesLst = BL.GetBranchesNamesFromCache();
+            ViewBag.branchesLst = branchesLst;
+            ViewData["Message"] = "Your Index page.";
+            return View();
+        }
+
 
         public IActionResult Privacy()
         {
