@@ -8137,6 +8137,12 @@ button.close {
     display: none !important;
 }
 
+.search {
+    margin-right: 240px;
+    margin-top: -80px;
+    margin-bottom: 30px;
+}
+
 @media print {
     .visible-print {
         display: block !important;
