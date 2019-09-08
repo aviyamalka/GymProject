@@ -26,7 +26,7 @@ namespace GymProject.Controllers
         // GET: Lessons
         public async Task<IActionResult> Index()
         {
-            BussinessLogic BL = new BussinessLogic(this.cache,_context);
+            BussinessLogic BL = new BussinessLogic(this.cache, _context);
             List<string> citiesLst = BL.GetCitiesNamesFromCache();
             List<string> traningLst = BL.GetTrainingNamesFromCache();
             ViewBag.citiesLst = citiesLst;
@@ -38,29 +38,32 @@ namespace GymProject.Controllers
             return (from less in _context.Lesson
                     join bran in _context.Branch on less.BranchId equals bran
                     join train in _context.Training
-                    on less.TrainingId equals train select new CalendarLesson{
-                        LessonId=less.LessonId,
-                        BranchId=bran,
-                        BranchName=bran.Name,
-                        EndTime=less.EndTime,
-                        StartTime=less.StartTime,
-                        RegistrantMax=less.RegistrantMax,
-                        RegistrantNum=less.RegistrantNum,
-                        TeacherName=less.TeacherName,
-                        TrainingId=train,
-                        TrainningName= train.Name
+                    on less.TrainingId equals train
+                    select new CalendarLesson
+                    {
+                        LessonId = less.LessonId,
+                        BranchId = bran,
+                        BranchName = bran.Name,
+                        EndTime = less.EndTime,
+                        StartTime = less.StartTime,
+                        RegistrantMax = less.RegistrantMax,
+                        RegistrantNum = less.RegistrantNum,
+                        TeacherName = less.TeacherName,
+                        TrainingId = train,
+                        TrainningName = train.Name
 
                     }).ToList();
         }
+
         public dynamic GetAllLessonsGroupByBranch()
         {
             //return  _context.Lesson.Include(b => b.BranchId).GroupBy(br => br.BranchId).ToList();
             return (from less in _context.Lesson
                     group less by less.BranchId.Name into lessBranch
-                    select new 
+                    select new
                     {
-                       name=lessBranch.Key,
-                       count=lessBranch.Count()
+                        name = lessBranch.Key,
+                        count = lessBranch.Count()
                     }).ToList();
         }
         public void  Search([FromBody]SearchRequest search)
@@ -103,16 +106,16 @@ namespace GymProject.Controllers
     //        IEnumerable<Training> training = _context.Training.Include(t => t.Name);
     //        IEnumerable<Address> address = _context.Addresses.Include(a => a.City);
 
-    //       // if (city == a.city)
-    //        //    lesson = lesson.Where(l => l.StartTime.Contains(date));
-    //        //if (search_from != "All" && search_from != "")
-    //            training = training.Where(t => t.Name.Contains(trainning));
-    //       // if (search_to != "All" && search_to != "")
-    //            address = address.Where(a => a.City.Contains(city));
+           // if (city == a.city)
+            //    lesson = lesson.Where(l => l.StartTime.Contains(date));
+            //if (search_from != "All" && search_from != "")
+                training = training.Where(t => t.Name.Contains(trainning));
+           // if (search_to != "All" && search_to != "")
+                address = address.Where(a => a.City.Contains(city));
 
-    //        return View(lesson.ToList());
+            return View(lesson.ToList());
 
-    //    }
+        }
 
         public async Task<IActionResult> Details(int? id)
         {
@@ -247,7 +250,7 @@ namespace GymProject.Controllers
                 logic.RegisterToLesson(r.UserId, r.LessonId);
                 return true;
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 return false;
             }
@@ -266,5 +269,7 @@ namespace GymProject.Controllers
                 return false;
             }
         }
+
     }
+
 }

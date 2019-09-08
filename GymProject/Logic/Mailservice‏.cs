@@ -12,6 +12,7 @@ namespace GymProject.Logic
     {
         public string fullName;
         public string email;
+        public string description;
         public static void SendEmail(string toEmail, string subject, string messBody, string description)
         {
             try
@@ -34,6 +35,11 @@ namespace GymProject.Logic
                 var a = 78;
             }
 
+        }
+
+        internal static void SendEmail(string v1, string v2, object p, string v3)
+        {
+            throw new NotImplementedException();
         }
     }
 }

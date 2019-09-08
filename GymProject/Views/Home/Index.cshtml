@@ -28,41 +28,13 @@
             <img src="~/images/1.jpg" />
             <div class="carousel-caption" role="option">
 
-                <a class="btn btn-default" id="btnOpenDialog">
+                <a class="btn btn-default" id="btnOpenDialog" target="_self" href="/Branches/Index">
                     חפש את המועדון המתאים עבורך
                     <i class="fa fa-search"></i>
                 </a>
-                <div id="dialogDiv">
-                    <label for="autocomplete"> </label>
-                    <input id="autocomplete">
-                </div>
-
-                <script>
-                    $(document).ready(function () {
-                        $("#dialogDiv").dialog({
-                            autoOpen: false,
-                            modal: true,
-                            minWidth: 1000,
-                            draggable: false,
-                            width: 500,
-
-                            title: "התחל להקליד ומצא את המועדון הכי קרוב אלייך :",
-                        });
-                        $("#autocomplete").autocomplete({
-                            source: ["c++", "java", "php", "coldfusion", "javascript", "asp", "ruby"]
-                            @*<select asp-items="@(new SelectList(ViewBag.citiesLst,"-עיר-"))" class="form-control"></select>*@
-                        });
-                    });
-
-                    $("#btnOpenDialog").click(function () {
-                        $("#dialogDiv").dialog("open");
-                        $(".selector").dialog("close");
-                        $(".selector").dialog("option", "width", 500);
 
 
 
-                    });
-                </script>
             </div>
         </div>
         <div class="item">
@@ -71,7 +43,8 @@
             <div class="carousel-caption" role="option">
                 <p>
 
-                    <a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkID=525030&clcid=0x409">
+
+                    <a class="btn btn-default" id="btnOpenDialog" target="_self" href="/Branches/Index">
                         חפש את המועדון המתאים עבורך
                         <i class="fa fa-search"></i>
                     </a>
@@ -85,7 +58,8 @@
             <div class="carousel-caption" role="option">
                 <p>
 
-                    <a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkID=525027&clcid=0x409">
+
+                    <a class="btn btn-default" id="btnOpenDialog" target="_self" href="/Branches/Index">
                         חפש את המועדון המתאים עבורך
                         <i class="fa fa-search"></i>
                     </a>
@@ -176,74 +150,69 @@
 
 </section>
 
-    
 
-    <section class="appointment-content appointment-content-red">
-        <div class="container ">
-            <div class="appointment-content-inner">
-                <div class="row">
-                    <div class="col-12 text-center">
-                        <h3 class="mb-3">לפגישת היכרות והצטרפות השאירו פרטים</h3>
-                        <p>אנא מלאו את הפרטים הבאים ונציג יחזור אליכם בהקדם</p>
+
+<section class="appointment-content appointment-content-red">
+    <div class="container ">
+        <div class="appointment-content-inner">
+            <div class="row">
+                <div class="col-12 text-center">
+                    <h3 class="mb-3">לפגישת היכרות והצטרפות השאירו פרטים</h3>
+                    <p>אנא מלאו את הפרטים הבאים ונציג יחזור אליכם בהקדם</p>
+                </div>
+            </div>
+            <style>
+                .error {
+                    color: #FFF;
+                }
+            </style>
+            <form id="FormInnerPage" class="form-full" action="/Home/tnxpage" method="POST" novalidate="novalidate">
+
+                <div class="row no-gutters">
+                    <div class="col-12 col-sm-auto">
+                        <div class="form-group">
+                            <input class="form-control" id="fullname" name="fullname" type="text" placeholder="שם מלא*">
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-auto">
+                        <div class="form-group">
+                            <input class="form-control" name="phone" type="text" placeholder="טלפון*">
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-auto">
+                        <div class="form-group">
+                            <input class="form-control" id="email" name="email" type="text" placeholder="דוא”ל">
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-auto">
+                        <div class="form-group">
+                            <select asp-items="@(new SelectList(ViewBag.branchesLst,"-סניף-"))" name="club" class="form-control"></select>
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-auto">
+                        <div class="form-group">
+                            <a id="mailBtn" class="btn-black ContactFormClubSubmit">שלח</a>
+
+                            @*<button type="submit" class="btn-black ContactFormClubSubmit" href="https://localhost:44353/home/tnxpage">שלח</button>*@
+                        </div>
                     </div>
                 </div>
-                <style>
-                    .error {
-                        color: #FFF;
-                    }
-                </style>
-                <form id="FormInnerPage" class="form-full" action="/Home/tnxpage" method="POST" novalidate="novalidate">
-
-                    <div class="row no-gutters">
-                        <div class="col-12 col-sm-auto">
-                            <div class="form-group">
-                                <input class="form-control" name="fullname" type="text" placeholder="שם מלא*">
-                            </div>
-                        </div>
-                        <div class="col-12 col-sm-auto">
-                            <div class="form-group">
-                                <input class="form-control" name="phone" type="text" placeholder="טלפון*">
-                            </div>
-                        </div>
-                        <div class="col-12 col-sm-auto">
-                            <div class="form-group">
-                                <input class="form-control" name="email" type="text" placeholder="דוא”ל">
-                            </div>
-                        </div>
-                        <div class="col-12 col-sm-auto">
-                            <div class="form-group">
-                                <select class="form-control" name="club">
-                                    <option disabled="" selected="">בחר סניף*</option>
-
-                                </select>
-                            </div>
-                        </div>
-                        <div class="col-12 col-sm-auto">
-                            <div class="form-group">
-                                <button type="submit" class="btn-black ContactFormClubSubmit">שלח</button>
-                            </div>
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="form-group">
+                            <label class="custom-checkbox" for="terms-inner">
+                                <input type="checkbox" value="1" name="terms" class="form-check-input" id="terms-inner">
+                                <span class="checkmark"></span>
+                                נא עדכנו אותי על מבצעים והטבות בסמס, מייל וכו'
+                            </label>
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="col-sm-12">
-                            <div class="form-group">
-                                <label class="custom-checkbox" for="terms-inner">
-                                    <input type="checkbox" value="1" name="terms" class="form-check-input" id="terms-inner">
-                                    <span class="checkmark"></span>
-                                    נא עדכנו אותי על מבצעים והטבות בסמס, מייל וכו'
-                                </label>
-                            </div>
-                        </div>
-                    </div>
-                </form>
-            </div>
+                </div>
+            </form>
         </div>
-        
-    </section>
+    </div>
 
-
-
-
+</section>
 
 
 

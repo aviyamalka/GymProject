@@ -155,33 +155,3 @@
 });
 
 
-
-//window.fbAsyncInit = function () {
-//    FB.init({
-//        appId: 'your-app-id',
-//        xfbml: true,
-//        version: 'v2.3'
-//    });
-//};
-
-//(function (d, s, id) {
-//    var js, fjs = d.getElementsByTagName(s)[0];
-//    if (d.getElementById(id)) { return; }
-//    js = d.createElement(s); js.id = id;
-//    js.src = "//connect.facebook.net/en_US/sdk.js";
-//    fjs.parentNode.insertBefore(js, fjs);
-//}(document, 'script', 'facebook-jssdk'));
-
-//$('#fb-share-button').click(function() {
-//    FB.ui({
-//          method: 'feed',
-//        link: 'https://stackoverflow.com/questions/26021781/testing-facebook-share-dialog-with-localhost-unable-to-resolve-object-at-url/26514593', 
-//          picture: 'The picture url',
-//          name: "The name who will be displayed on the post",
-//          description: "The description who will be displayed"
-//        }, function(response){
-//            console.log(response);
-//        }
-//    );
-
-

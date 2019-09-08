@@ -1,5 +1,4 @@
 ﻿$(document).ready(function () {
-    debugger;
  $(".navbar").css("position", "absolute");
     $(".navbar-nav").css("display", "inline-block");
     $(".navbar").css("paddiing","0rem 0rem");
@@ -11,6 +10,27 @@
         { label: "Delux", color: "#16175c" }
     ];
 
+    
+    var elements = document.querySelectorAll("#citySelect, #time");
+    searchButton = document.querySelector('#searchBtn')
+    searchButton.disabled = true
+    $("#searchBtnLabel").css('background-color', 'pink');
+
+    for (i = 0; i < elements.length; i++) {
+        elements[i].addEventListener('change', () => {
+            let values = []
+            elements.forEach(v => values.push(v.value))
+            if (values.includes('') || values.includes('-עיר-')) {
+                searchButton.disabled = true;
+                $("#searchBtnLabel").css('background-color', 'pink');
+            } else {
+                searchButton.disabled = false;
+                $("#searchBtnLabel").css('background-color', '#d43f3a');
+            }
+        })
+    }
+    
+
     var svg = d3.select("body").append("svg").attr("width", 700).attr("height", 300);
 
     svg.append("g").attr("id", "salesDonut");
@@ -21,7 +41,6 @@
     }
 
     function getData() {
-        debugger;
         var res = DbConnection.GetAllLessonsGroupByBranch();
         var lessonsArr = [];
         for (var i = 0; i < res.length; i++)  
@@ -38,3 +57,18 @@
         return lessonsArr;
     }
 });
+
+function searchBranch() {
+    debugger;
+    selectedIsBabySitter = $("#babysitterSelect").val();
+    selectedCity = $("#citySelect").val();
+    selctedTime = $("#time").val();
+
+    $('.card ').each(function (i, obj) {
+        if ($(obj).find("#babysitter").html() != selectedIsBabySitter || $(obj).find("#city").html() != selectedCity ||
+            !(selctedTime > $(obj).find("#openHour").html() && selctedTime < $(obj).find("#closeHour").html())) {
+            $(obj).css('display', 'none');
+        }
+    });
+
+}
