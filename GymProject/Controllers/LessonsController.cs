@@ -109,13 +109,13 @@ namespace GymProject.Controllers
            // if (city == a.city)
             //    lesson = lesson.Where(l => l.StartTime.Contains(date));
             //if (search_from != "All" && search_from != "")
-                training = training.Where(t => t.Name.Contains(trainning));
-           // if (search_to != "All" && search_to != "")
-                address = address.Where(a => a.City.Contains(city));
+        //        training = training.Where(t => t.Name.Contains(trainning));
+        //   // if (search_to != "All" && search_to != "")
+        //        address = address.Where(a => a.City.Contains(city));
 
-            return View(lesson.ToList());
+        //    return View(lesson.ToList());
 
-        }
+        //}
 
         public async Task<IActionResult> Details(int? id)
         {
@@ -271,5 +271,5 @@ namespace GymProject.Controllers
         }
 
     }
-
 }
+
