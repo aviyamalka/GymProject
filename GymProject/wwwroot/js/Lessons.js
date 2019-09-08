@@ -20,8 +20,32 @@
     }
     IsLessonEnabled();
     $("#searchBtn").click(function () {
-        debugger;
         $("#frame").hide();
         $("#tbl").show();
+        debugger;
+        var controllerURL = 'https://localhost:5001/Lessons/Index';
+
+        var train = $("#train").val();
+        var city = $("#city").val();
+        var date = $("#date").val();
+        //var params = {
+        //    name: name,
+        //    email: email
+
+        //};
+        $.ajax({
+            type: "POST",
+            url: controllerURL,
+            dataType: "json",
+            data: JSON.stringify({ "city": city, "train": train,"date":date }),
+            contentType: "application/json; charset=utf-8",
+            success: function () {
+                window.location.reload();
+            }
+
+
+        });
+       
+ 
     });
 });

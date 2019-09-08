@@ -9,6 +9,7 @@ using GymProject.Data;
 using GymProject.Models;
 using Microsoft.Extensions.Caching.Memory;
 using GymProject.Logic;
+using GymProject.Controllers.Model;
 
 namespace GymProject.Controllers
 {
@@ -29,7 +30,7 @@ namespace GymProject.Controllers
             List<string> citiesLst = BL.GetCitiesNamesFromCache();
             List<string> traningLst = BL.GetTrainingNamesFromCache();
             ViewBag.citiesLst = citiesLst;
-            ViewBag.traningLst = traningLst;
+            ViewBag.traningLst = traningLst;          
             return View(await _context.Lesson.ToListAsync());
         }
         public List<CalendarLesson> GetAllLessons()
@@ -62,59 +63,56 @@ namespace GymProject.Controllers
                        count=lessBranch.Count()
                     }).ToList();
         }
-        //public void Search(string city, DateTime date, string trainning)
-        ////public async Task<IActionResult> Search(string city,DateTime date,string trainning)
-        //{
-
-        //    if (city != "-עיר-")
-        //    {
-        //        //    List<Lesson> result = (from less in _context.Lesson
-        //        //                           join bran in _context.Branch on less.LessonId equals bran.BranchId
-        //        //                           join add in _context.Addresses on bran.BranchAddress.AddressId equals add.AddressId
-        //        //                           select new Lesson
-        //        //                           {
-        //        //                               LessonId = less.LessonId
-
-        //        //                           }).ToList();
-        //    }
-        //    else
-        //    {
-
-        //    }
-        //    if (trainning != "-אימון-")
-        //    {
-
-        //    }
-
-        //}
-        // GET: Lessons/Details/5
-        //public async Task<IActionResult> SearchFunc(string city, string trainning, DateTime date)
-        //{
-        //    var result = from d in _context.searchRes
-        //                 where (d.city == city && d.Name == trainning && d.StartTime == date)
-        //                 select d;
-        //    return View(await result.ToListAsync());          
-
-
-        //}
-
-        public ActionResult search(string city , DateTime date, string trainning)
-
+        public void  Search([FromBody]SearchRequest search)
         {
-            IEnumerable<Lesson> lesson = _context.Lesson.Include(l => l.StartTime.Date);
-            IEnumerable<Training> training = _context.Training.Include(t => t.Name);
-            IEnumerable<Address> address = _context.Addresses.Include(a => a.City);
+            var lessons = (from less in _context.Lesson
+                                  join train in  _context.Training on less.TrainingId equals train
+                                  join bran in _context.Branch on less.BranchId equals bran
+                                  join add in _context.Addresses on bran.BranchAddress equals add
+                           where less.StartTime.Date == search.date.Date
+                           && bran.BranchAddress.City == search.city
+                           && less.TrainingId.Name == search.train
+                           select new Lesson
+                                   {
+                                       LessonId = less.LessonId
+                                      ,TrainingId=train,
+                                       BranchId=less.BranchId,
+                                       EndTime=less.EndTime,
+                                       RegistrantMax=less.RegistrantMax,
+                                       RegistrantNum=less.RegistrantNum,
+                                       StartTime=less.StartTime,
+                                       TeacherName=less.TeacherName
 
-           // if (city == a.city)
-            //    lesson = lesson.Where(l => l.StartTime.Contains(date));
-            //if (search_from != "All" && search_from != "")
-                training = training.Where(t => t.Name.Contains(trainning));
-           // if (search_to != "All" && search_to != "")
-                address = address.Where(a => a.City.Contains(city));
-
-            return View(lesson.ToList());
-
+                                   }).ToListAsync();
         }
+    // GET: Lessons/Details/5
+    //public async Task<IActionResult> SearchFunc(string city, string trainning, DateTime date)
+    //{
+    //    var result = from d in _context.searchRes
+    //                 where (d.city == city && d.Name == trainning && d.StartTime == date)
+    //                 select d;
+    //    return View(await result.ToListAsync());          
+
+
+    //}
+
+    //public ActionResult search(string city , DateTime date, string trainning)
+
+    //    {
+    //        IEnumerable<Lesson> lesson = _context.Lesson.Include(l => l.StartTime.Date);
+    //        IEnumerable<Training> training = _context.Training.Include(t => t.Name);
+    //        IEnumerable<Address> address = _context.Addresses.Include(a => a.City);
+
+    //       // if (city == a.city)
+    //        //    lesson = lesson.Where(l => l.StartTime.Contains(date));
+    //        //if (search_from != "All" && search_from != "")
+    //            training = training.Where(t => t.Name.Contains(trainning));
+    //       // if (search_to != "All" && search_to != "")
+    //            address = address.Where(a => a.City.Contains(city));
+
+    //        return View(lesson.ToList());
+
+    //    }
 
         public async Task<IActionResult> Details(int? id)
         {

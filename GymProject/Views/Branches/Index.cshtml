@@ -4,7 +4,7 @@
 <p>
     <a asp-action="Create">Create New</a>
 </p>
-
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 <link href="css/shop-homepage.css" rel="stylesheet">
 <link href="~/css/GlobalStyle.css" rel="stylesheet">
 <script src="~/lib/calendar/Calendar_DB_connect.js"></script>
@@ -38,6 +38,7 @@
                 <div class="img-text">הסניפים שלנו</div>
             </div>
 
+            <script src="https://d3js.org/d3.v3.min.js"></script>
 
             <div class="row">
 
@@ -57,8 +58,8 @@
                                 <a asp-action="Delete" asp-route-id="@item.BranchId">Delete</a>
                             </div>
                             @*<div class="card-footer">
-                                <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
-                            </div>*@
+                            <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
+                        </div>*@
                         </div>
                     </div>
                 }
@@ -72,6 +73,8 @@
     </div>
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script src="https://d3js.org/d3.v3.min.js"></script>
+    @*<script src="https://d3js.org/d3.v3.min.js"></script>*@
+    <div id="graphMap" class="pull-right">
 
+    </div>
     </body>

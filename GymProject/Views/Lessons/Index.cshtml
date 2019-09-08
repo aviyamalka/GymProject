@@ -21,7 +21,7 @@
 <h2>חיפוש  שיעור</h2>
 <div class="row SearchTxtBoxWrapper pull-right col-md-12">
     <div class="col-md-3 pull-right">
-        <select asp-items="@(new SelectList(ViewBag.citiesLst,"-עיר-"))" class="form-control"></select>
+        <select asp-items="@(new SelectList(ViewBag.citiesLst,"-עיר-"))" class="form-control" id="city"></select>
     </div>
     @*<div class="col-md-4 pull-right">
             <input type="text" class="form-control" placeholder="עיר">
@@ -30,10 +30,10 @@
             <input type="text" class="form-control" placeholder="אימון">
         </div>*@
     <div class="col-md-3 pull-right">
-        <select asp-items="@(new SelectList(ViewBag.traningLst,"-עיר-"))" class="form-control"></select>
+        <select asp-items="@(new SelectList(ViewBag.traningLst,"-עיר-"))" class="form-control" id="train"></select>
     </div>
     <div class="col-md-3 pull-right">
-        <input type="text" class="form-control" placeholder="תאריך">
+        <input type="text" class="form-control" placeholder="תאריך" id="date">
     </div>
     <label class="btn-lg btn-danger">
         <input type="button" style="display:none" id="searchBtn">

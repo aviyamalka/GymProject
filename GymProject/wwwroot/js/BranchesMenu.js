@@ -4,9 +4,9 @@
     $(".navbar-nav").css("display", "inline-block");
     $(".navbar").css("paddiing","0rem 0rem");
     var salesData = [
-        { label: "Basic", color: "#03fccf" },
-        { label: "Plus", color: "#52c3f7" },
-        { label: "Lite", color: "#2042b3" },
+        { label: "Basic", color: "#c79f77" },
+        { label: "Plus", color: "#a83920" },
+        { label: "Lite", color: "#631738" },
         { label: "Elite", color: "#4fa3c9" },
         { label: "Delux", color: "#16175c" }
     ];
@@ -28,6 +28,12 @@
         {
             var x = { "label": res[i].name, "value": res[i].count, "color": salesData[i].color };
             lessonsArr.push(x);
+            var $label = $("<label>").text(res[i].name);
+            var $br = $("<br>");
+            var $span = $('<i class="material-icons">stop</i>').css({ color: salesData[i].color });
+            $span.appendTo($label);
+            $("#graphMap").append($label);
+            $("#graphMap").append($br);
         }
         return lessonsArr;
     }
