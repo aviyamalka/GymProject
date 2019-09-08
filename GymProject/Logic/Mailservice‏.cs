@@ -26,7 +26,7 @@ namespace GymProject.Logic
                 var smtp = new SmtpClient("smtp.gmail.com",587)
                 {
                     EnableSsl = true,
-                    Credentials = new NetworkCredential("ActiveYourselfOffice@gmail.com", "QWaszx!2")
+                    Credentials = new NetworkCredential("ActiveYourselfOffice@gmail.com", "Efrat!234")
                 };              
                     smtp.Send(Mes);
             }
