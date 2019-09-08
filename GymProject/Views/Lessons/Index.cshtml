@@ -30,12 +30,12 @@
             <input type="text" class="form-control" placeholder="אימון">
         </div>*@
     <div class="col-md-3 pull-right">
-        <select asp-items="@(new SelectList(ViewBag.traningLst,"-עיר-"))" class="form-control"></select>
+        <select asp-items="@(new SelectList(ViewBag.traningLst,"-עיר-"))" class="form-control" id="selectedCity"></select>
     </div>
     <div class="col-md-3 pull-right">
-        <input type="text" class="form-control" placeholder="תאריך">
+        <input type="text" class="form-control" placeholder="תאריך" id="selectedDate">
     </div>
-    <label class="btn-lg btn-danger">
+    <label class="btn-lg btn-danger" id="searchBtnLabel">
         <input type="button" style="display:none" id="searchBtn">
         חפש <span class="glyphicon glyphicon-search"></span>
     </label>
