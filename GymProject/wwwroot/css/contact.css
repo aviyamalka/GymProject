@@ -1,4 +1,7 @@
-﻿.banner-small {
+﻿#sendButton {
+    margin-top: 15px;
+}
+.banner-small {
     min-height: 520px;
     background-size: cover;
     background-repeat: no-repeat;
