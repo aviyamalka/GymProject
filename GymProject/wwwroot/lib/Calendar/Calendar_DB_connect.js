@@ -51,7 +51,7 @@
                 error: errorFunc
         });
         function successFunc(data, status) {
-            //alert(data);
+            alert("ההרשמה בוצעה בהצלחה");
         }
 
         function errorFunc(error) {
@@ -70,7 +70,7 @@
             error: errorFunc
         });
         function successFunc(data, status) {
-            //alert(data);
+            alert("הביטול בוצע בהצלחה");
         }
 
         function errorFunc(error) {

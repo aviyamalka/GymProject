@@ -1,13 +1,14 @@
 ﻿
 var eventsArr = {
         events: DbConnection.getAllLessons()
-        , eventDataTransform: function (obj) {
+    , eventDataTransform: function (obj) {
+        debugger;
             var event = {};
-            // event.id = 1;
+            event.id = obj.lessonId;
             event.title = obj.branchName + "-" + obj.trainningName;
             event.start = obj.startTime;
             event.end = obj.endTime;
-            event.url = 'https://fullcalendar.io/docs/eventClick';
+            event.url = 'https://localhost:5001/Trainings/Details/' + obj.trainingId.trainingId;
             //event.color = "silver";
             //event.textColor = "black";
             //  event.icon = obj.icon;
@@ -37,10 +38,11 @@ $(function () {
         jsEvent.preventDefault();
         debugger;
         $('#subject').html(event.title);
+        $('#lessonId').html(event.id);
         $('#startTime').html(moment(event.start).format("HH:mm") + " :שעת התחלה");
         // }
-        $("#recordUrl").attr("href", event.url);
-        $("#recordUrl").attr("target", "_blank");
+        $("#eventUrl").attr("href", event.url);
+        $("#eventUrl").attr("target", "_blank");
         $(".modal-footer").attr('dir', 'rtl');
         $('#endTime').html(event.end ? moment(event.end).format("HH:mm") + " :שעת סיום" : null);
         $('#myModal').modal();

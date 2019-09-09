@@ -37,7 +37,7 @@
         </label>
     </div>
 </form>
-
+<label id="userName">@UserManager.GetUserName(User)</label>
 @*commented by yaelf: should be only in admin role*@
 @if (SignInManager.IsSignedIn(User) && User.IsInRole("Admin"))
 {
