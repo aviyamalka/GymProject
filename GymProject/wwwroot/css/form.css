@@ -139,6 +139,11 @@ element.style {
     font-size: 22px;
     font-family: 'Assistant', sans-serif;
     outline: none;
+    padding-left: 13px;
+    padding-right: 10px;
+    margin-top: -102px;
+    padding-top: 2px;
+    padding-bottom: 32px;
 }
 
 .btn-black {
