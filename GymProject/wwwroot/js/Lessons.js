@@ -5,14 +5,14 @@
 
     debugger;
     var elements = document.querySelectorAll("#selectedCity, #selectedDate");
-    searchButton = document.querySelector('#searchBtn')
-    searchButton.disabled = true
-    $("#searchBtnLabel").css('background-color', 'pink');
+    searchButton = document.querySelector('#searchBtn');
+    //searchButton.disabled = true;
+   //s $("#searchBtnLabel").css('background-color', 'pink');
 
     for (i = 0; i < elements.length; i++) {
         elements[i].addEventListener('change', () => {
             let values = []
-            elements.forEach(v => values.push(v.value))
+            elements.forEach(v => values.push(v.value));s
             if (values.includes('') || values.includes('-עיר-')) {
                 searchButton.disabled = true;
                 $("#searchBtnLabel").css('background-color', 'pink');
@@ -20,7 +20,7 @@
                 searchButton.disabled = false;
                 $("#searchBtnLabel").css('background-color', '#d43f3a');
             }
-        })
+        });
     }
 
     function IsLessonEnabled() {
@@ -41,8 +41,8 @@
     }
     IsLessonEnabled();
     $("#searchBtn").click(function () {
-        $("#frame").hide();
-        $("#tbl").show();
+        //$("#frame").hide();
+        //$("#tbl").show();
         debugger;
         var controllerURL = 'https://localhost:5001/Lessons/Index';
 
@@ -61,7 +61,9 @@
             data: JSON.stringify({ "city": city, "train": train,"date":date }),
             contentType: "application/json; charset=utf-8",
             success: function () {
-                window.location.reload();
+                $("#frame").show();
+                $("#tbl").hide();
+                //window.location.reload();
             }
 
 

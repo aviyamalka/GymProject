@@ -15,30 +15,29 @@
 
 
 
+
 <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-3.3.1.min.js"></script>
 <script src="~/js/Lessons.js"></script>
 <h2>חיפוש  שיעור</h2>
-<div class="row SearchTxtBoxWrapper pull-right col-md-12">
-    <div class="col-md-3 pull-right">
-        <select asp-items="@(new SelectList(ViewBag.citiesLst,"-עיר-"))" class="form-control" id="city"></select>
+<form asp-controller="Lessons" asp-action="Index">
+
+    <div class="row SearchTxtBoxWrapper pull-right col-md-12">
+        <div class="col-md-3 pull-right">
+            <select asp-items="@(new SelectList(ViewBag.citiesLst,"-עיר-"))" class="form-control" id="searchCity" name="searchCity"></select>
+        </div>
+        <div class="col-md-3 pull-right">
+            <select asp-items="@(new SelectList(ViewBag.traningLst,"-אימון-"))" class="form-control" id="searchTrain" name="searchTrain"></select>
+        </div>
+        <div class="col-md-3 pull-right">
+            <input type="date" class="form-control" placeholder="תאריך" id="searchDate" name="searchDate">
+        </div>
+        <label class="btn-lg btn-danger" id="searchBtnLabel">
+            <input type="submit" style="display:none" id="searchBtn">
+            חפש <i class="material-icons">search</i>
+        </label>
     </div>
-    @*<div class="col-md-4 pull-right">
-            <input type="text" class="form-control" placeholder="עיר">
-        </div>*@
-    @*<div class="col-md-3  pull-right">
-            <input type="text" class="form-control" placeholder="אימון">
-        </div>*@
-    <div class="col-md-3 pull-right">
-        <select asp-items="@(new SelectList(ViewBag.traningLst,"-עיר-"))" class="form-control" id="selectedCity"></select>
-    </div>
-    <div class="col-md-3 pull-right">
-        <input type="text" class="form-control" placeholder="תאריך" id="selectedDate">
-    </div>
-    <label class="btn-lg btn-danger" id="searchBtnLabel">
-        <input type="button" style="display:none" id="searchBtn">
-        חפש <span class="glyphicon glyphicon-search"></span>
-    </label>
-</div>
+</form>
+<label id="userName">@UserManager.GetUserName(User)</label>
 @*commented by yaelf: should be only in admin role*@
 @if (SignInManager.IsSignedIn(User) && User.IsInRole("Admin"))
 {
@@ -46,70 +45,69 @@
         <a asp-action="Create">הוסף שיעור חדש</a>
     </p>
 }
-<table class="table pull-right" hidden id="tbl">
-    <thead>
-        <tr>
-            <th>
-                <label class="pull-right">תאריך</label>
-            </th>
-            <th>
-                <label class="pull-right">יום בשבוע</label>
-            </th>
-            <th>
-                <label class="pull-right">שעת התחלה</label>
-            </th>
-            <th>
-                <label class="pull-right">שעת סיום</label>
-            </th>
-            <th>
-                <label class="pull-right">שם מורה</label>
-            </th>
-            <th>
-                <label class="pull-right">מספר משתתפים מקסימלי</label>
-            </th>
-            <th>
-                <label class="pull-right">מספר משתתפים</label>
-            </th>
-        </tr>
-    </thead>
-    <tbody>
-        @*TODO:implement function to add zero in hours and dates format*@
-        @foreach (var item in Model)
-        {
-            <tr class="regRow">
-                <td>
-                    @*@Html.DisplayFor(modelItem => item.StartTime.Date)*@
-                    <p>@item.StartTime.Day/@item.StartTime.Month/@item.StartTime.Year</p>
-                </td>
-                <td>
-                    <p>@item.StartTime.DayOfWeek</p>
-                </td>
-                <td>
-                    <p>@item.StartTime.Hour:@item.StartTime.Minute</p>
-                </td>
-                <td>
-                    <p>@item.EndTime.Hour:@item.EndTime.Minute</p>
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.TeacherName)
-                </td>
-                <td>
-                    @*@Html.DisplayFor(modelItem => item.RegistrantMax)*@
-                    <p name="regmax">@item.RegistrantMax</p>
-                </td>
-                <td>
-                    @*@Html.DisplayFor(modelItem => item.RegistrantNum)*@
-                    <p name="regnum">@item.RegistrantNum</p>
-                </td>
-                <td>
-                    <a asp-action="Edit" asp-route-id="@item.LessonId" name="edit">ערוך</a> |
-                    <a asp-action="Details" asp-route-id="@item.LessonId" name="details">פרטים</a> |
-                    <a asp-action="Delete" asp-route-id="@item.LessonId" name="delete">מחק</a>
-                </td>
+    <table class="table pull-right" hidden id="tbl">
+        <thead>
+            <tr>
+                <th>
+                    <label class="pull-right">תאריך</label>
+                </th>
+                <th>
+                    <label class="pull-right">יום בשבוע</label>
+                </th>
+                <th>
+                    <label class="pull-right">שעת התחלה</label>
+                </th>
+                <th>
+                    <label class="pull-right">שעת סיום</label>
+                </th>
+                <th>
+                    <label class="pull-right">שם מורה</label>
+                </th>
+                <th>
+                    <label class="pull-right">מספר משתתפים מקסימלי</label>
+                </th>
+                <th>
+                    <label class="pull-right">מספר משתתפים</label>
+                </th>
             </tr>
-        }
-    </tbody>
+        </thead>
+        <tbody>
+            @*TODO:implement function to add zero in hours and dates format*@
+            @foreach (var item in Model)
+            {
+                <tr class="regRow">
+                    <td>
+                        @*@Html.DisplayFor(modelItem => item.StartTime.Date)*@
+                        <p>@item.StartTime.Day/@item.StartTime.Month/@item.StartTime.Year</p>
+                    </td>
+                    <td>
+                        <p>@item.StartTime.DayOfWeek</p>
+                    </td>
+                    <td>
+                        <p>@item.StartTime.Hour:@item.StartTime.Minute</p>
+                    </td>
+                    <td>
+                        <p>@item.EndTime.Hour:@item.EndTime.Minute</p>
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.TeacherName)
+                    </td>
+                    <td>
+                        @*@Html.DisplayFor(modelItem => item.RegistrantMax)*@
+                        <p name="regmax">@item.RegistrantMax</p>
+                    </td>
+                    <td>
+                        @*@Html.DisplayFor(modelItem => item.RegistrantNum)*@
+                        <p name="regnum">@item.RegistrantNum</p>
+                    </td>
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@item.LessonId" name="edit">ערוך</a> |
+                        <a asp-action="Details" asp-route-id="@item.LessonId" name="details">פרטים</a> |
+                        <a asp-action="Delete" asp-route-id="@item.LessonId" name="delete">מחק</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
 
-</table>
-<iframe src='~/lib/Calendar/calendar.html' width="1000px" height="800px" scrolling="no" frameborder="0" id="frame"></iframe>
-
+    </table>
+    <iframe src='~/lib/Calendar/calendar.html' width="1000px" height="800px" scrolling="no" frameborder="0" id="frame"></iframe>

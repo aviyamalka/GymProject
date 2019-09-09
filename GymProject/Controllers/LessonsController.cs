@@ -24,13 +24,38 @@ namespace GymProject.Controllers
         }
 
         // GET: Lessons
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string searchTrain = null,string searchCity = null,DateTime? searchDate=null)
         {
+            List<Lesson> lessons=new List<Lesson>();
             BussinessLogic BL = new BussinessLogic(this.cache, _context);
             List<string> citiesLst = BL.GetCitiesNamesFromCache();
             List<string> traningLst = BL.GetTrainingNamesFromCache();
             ViewBag.citiesLst = citiesLst;
-            ViewBag.traningLst = traningLst;          
+            ViewBag.traningLst = traningLst;
+            if (!string.IsNullOrEmpty(searchTrain))
+            {
+                lessons = (from less in _context.Lesson
+                           join train in _context.Training on less.TrainingId equals train
+                           join bran in _context.Branch on less.BranchId equals bran
+                           join add in _context.Addresses on bran.BranchAddress equals add
+                           where less.StartTime.Date == searchDate.Value
+                           && bran.BranchAddress.City == searchCity
+                           && less.TrainingId.Name == searchTrain
+                           select new Lesson
+                           {
+                               LessonId = less.LessonId
+                                      ,
+                               TrainingId = train,
+                               BranchId = less.BranchId,
+                               EndTime = less.EndTime,
+                               RegistrantMax = less.RegistrantMax,
+                               RegistrantNum = less.RegistrantNum,
+                               StartTime = less.StartTime,
+                               TeacherName = less.TeacherName
+
+                           }).ToList();
+                return View(lessons);
+            }
             return View(await _context.Lesson.ToListAsync());
         }
         public List<CalendarLesson> GetAllLessons()
