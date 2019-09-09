@@ -15,7 +15,6 @@
 
 
 
-
 <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-3.3.1.min.js"></script>
 <script src="~/js/Lessons.js"></script>
 <h2>חיפוש  שיעור</h2>
@@ -41,75 +40,76 @@
     </label>
 </div>
 @*commented by yaelf: should be only in admin role*@
-@if (SignInManager.IsSignedIn(User)&& User.IsInRole("Admin"))
+@if (SignInManager.IsSignedIn(User) && User.IsInRole("Admin"))
 {
     <p>
         <a asp-action="Create">הוסף שיעור חדש</a>
     </p>
 }
-    <table class="table pull-right" hidden id="tbl">
-        <thead>
-            <tr>
-                <th>
-                    <label class="pull-right">תאריך</label>
-                </th>
-                <th>
-                    <label class="pull-right">יום בשבוע</label>
-                </th>
-                <th>
-                    <label class="pull-right">שעת התחלה</label>
-                </th>
-                <th>
-                    <label class="pull-right">שעת סיום</label>
-                </th>
-                <th>
-                    <label class="pull-right">שם מורה</label>
-                </th>
-                <th>
-                    <label class="pull-right">מספר משתתפים מקסימלי</label>
-                </th>
-                <th>
-                    <label class="pull-right">מספר משתתפים</label>
-                </th>
+<table class="table pull-right" hidden id="tbl">
+    <thead>
+        <tr>
+            <th>
+                <label class="pull-right">תאריך</label>
+            </th>
+            <th>
+                <label class="pull-right">יום בשבוע</label>
+            </th>
+            <th>
+                <label class="pull-right">שעת התחלה</label>
+            </th>
+            <th>
+                <label class="pull-right">שעת סיום</label>
+            </th>
+            <th>
+                <label class="pull-right">שם מורה</label>
+            </th>
+            <th>
+                <label class="pull-right">מספר משתתפים מקסימלי</label>
+            </th>
+            <th>
+                <label class="pull-right">מספר משתתפים</label>
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @*TODO:implement function to add zero in hours and dates format*@
+        @foreach (var item in Model)
+        {
+            <tr class="regRow">
+                <td>
+                    @*@Html.DisplayFor(modelItem => item.StartTime.Date)*@
+                    <p>@item.StartTime.Day/@item.StartTime.Month/@item.StartTime.Year</p>
+                </td>
+                <td>
+                    <p>@item.StartTime.DayOfWeek</p>
+                </td>
+                <td>
+                    <p>@item.StartTime.Hour:@item.StartTime.Minute</p>
+                </td>
+                <td>
+                    <p>@item.EndTime.Hour:@item.EndTime.Minute</p>
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TeacherName)
+                </td>
+                <td>
+                    @*@Html.DisplayFor(modelItem => item.RegistrantMax)*@
+                    <p name="regmax">@item.RegistrantMax</p>
+                </td>
+                <td>
+                    @*@Html.DisplayFor(modelItem => item.RegistrantNum)*@
+                    <p name="regnum">@item.RegistrantNum</p>
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.LessonId" name="edit">ערוך</a> |
+                    <a asp-action="Details" asp-route-id="@item.LessonId" name="details">פרטים</a> |
+                    <a asp-action="Delete" asp-route-id="@item.LessonId" name="delete">מחק</a>
+                </td>
             </tr>
-        </thead>
-        <tbody>
-            @*TODO:implement function to add zero in hours and dates format*@
-            @foreach (var item in Model)
-            {
-                <tr class="regRow">
-                    <td>
-                        @*@Html.DisplayFor(modelItem => item.StartTime.Date)*@
-                        <p>@item.StartTime.Day/@item.StartTime.Month/@item.StartTime.Year</p>
-                    </td>
-                    <td>
-                        <p>@item.StartTime.DayOfWeek</p>
-                    </td>
-                    <td>
-                        <p>@item.StartTime.Hour:@item.StartTime.Minute</p>
-                    </td>
-                    <td>
-                        <p>@item.EndTime.Hour:@item.EndTime.Minute</p>
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.TeacherName)
-                    </td>
-                    <td>
-                        @*@Html.DisplayFor(modelItem => item.RegistrantMax)*@
-                        <p name="regmax">@item.RegistrantMax</p>
-                    </td>
-                    <td>
-                        @*@Html.DisplayFor(modelItem => item.RegistrantNum)*@
-                        <p name="regnum">@item.RegistrantNum</p>
-                    </td>
-                    <td>
-                        <a asp-action="Edit" asp-route-id="@item.LessonId" name="edit">ערוך</a> |
-                        <a asp-action="Details" asp-route-id="@item.LessonId" name="details">פרטים</a> |
-                        <a asp-action="Delete" asp-route-id="@item.LessonId" name="delete">מחק</a>
-                    </td>
-                </tr>
-            }
-        </tbody>
+        }
+    </tbody>
 
-    </table>
-    <iframe src='~/lib/Calendar/calendar.html' width="1000px" height="800px" scrolling="no" frameborder="0" id="frame"></iframe>
+</table>
+<iframe src='~/lib/Calendar/calendar.html' width="1000px" height="800px" scrolling="no" frameborder="0" id="frame"></iframe>
+
