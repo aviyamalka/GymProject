@@ -26,6 +26,7 @@
     </environment>
 </head>
 <body>
+
     <nav class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
             @*I CHANGE THE MENU TO BE ON THE LEFT SIZE*@
@@ -53,15 +54,18 @@
         </div>
     </nav>
 
-    <aside></aside>
+    <aside>
+        @*<canvas width="200" height="100">מצב הרשאת מנהל</canvas>*@
+    </aside>
     <partial name="_CookieConsentPartial" />
 
     <div class="container body-content">
+
         @RenderBody()
 
         <footer></footer>
     </div>
-    
+
 
     <h2 class="footer-heading">One life.Live it well.</h2>
     <environment include="Development">
@@ -88,7 +92,9 @@
 
     @RenderSection("Scripts", required: false)
 
-@*<script src="https://maps.googleapis.com/maps/api/js?sensor=false" type="text/javascript"></script>*@
+    @*<script src="https://maps.googleapis.com/maps/api/js?sensor=false" type="text/javascript"></script>*@
     <script src="https://d3js.org/d3.v4.min.js" charset="utf-8"></script>
+    <link href="https://fonts.googleapis.com/css?family=Assistant&display=swap" rel="stylesheet">
+
 </body>
 </html>
