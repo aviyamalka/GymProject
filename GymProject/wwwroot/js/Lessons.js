@@ -3,17 +3,16 @@
 
     }
 
-    debugger;
-    var elements = document.querySelectorAll("#selectedCity, #selectedDate");
+    var elements = document.querySelectorAll("#searchCity, #searchDate");
     searchButton = document.querySelector('#searchBtn');
-    //searchButton.disabled = true;
-   //s $("#searchBtnLabel").css('background-color', 'pink');
+    searchButton.disabled = true;
+    $("#searchBtnLabel").css('background-color', 'pink');
 
     for (i = 0; i < elements.length; i++) {
         elements[i].addEventListener('change', () => {
-            let values = []
-            elements.forEach(v => values.push(v.value));s
-            if (values.includes('') || values.includes('-עיר-')) {
+            let values = [];
+            elements.forEach(v => values.push(v.value));
+            if (values.includes(' ') || values.includes('-עיר-')) {
                 searchButton.disabled = true;
                 $("#searchBtnLabel").css('background-color', 'pink');
             } else {
