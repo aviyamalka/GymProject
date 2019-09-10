@@ -58,10 +58,7 @@
                         </div>
 
                     }
-                    @*@if (SignInManager.IsSignedIn(User) && User.IsInRole("Admin"))
-                        { }
-                        <a asp-action="Edit" asp-route-id="@item.TrainingId">עריכה</a> |
-                        <a asp-action="Delete" asp-route-id="@item.TrainingId">מחיקה</a>*@
+                    
 
                 </div>
             </div>
@@ -89,9 +86,7 @@
 <!-- ADD GOOGLE FONT FOR `Assistant` FONT -->
 <link href="https://fonts.googleapis.com/css?family=Assistant&display=swap" rel="stylesheet">
 
-<link href="~/css/form.css" rel="stylesheet" />
-<script src="~/js/Trainings.js"></script>
-<script src="~/js/Donut3D.js"></script>
+
 <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 
 <script src="~/lib/calendar/Calendar_DB_connect.js"></script>
