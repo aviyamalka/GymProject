@@ -80,8 +80,19 @@ namespace GymProject.Controllers
             }
             return View(training);
         }
-
-        // POST: Trainings/Edit/5
+         public dynamic GetAllTrainingGroupByCategory()
+        {
+            
+            return (from train in _context.Training
+                    group train by train.Type into trainCategory
+                    select new
+                    {
+                        name = trainCategory.Key,
+                        count = trainCategory.Count()
+                    }).ToList();
+        }
+        
+        //// POST: Trainings/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]

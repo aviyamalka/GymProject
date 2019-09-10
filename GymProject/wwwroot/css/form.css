@@ -135,10 +135,11 @@ element.style {
 }
 
 .appointment-content-inner .btn-black {
-    padding: 15px 50px;
-    font-size: 22px;
+ 
+    font-size: 19px;
     font-family: 'Assistant', sans-serif;
     outline: none;
+    padding-bottom: 17px;
 }
 
 .btn-black {

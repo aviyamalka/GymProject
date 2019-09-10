@@ -28,7 +28,7 @@
             <img src="~/images/1.jpg" />
             <div class="carousel-caption" role="option">
 
-                <a class="btn btn-default" id="btnOpenDialog" target="_self" href="/Branches/Index">
+                <a class="btn btn-default" id="btnOpenDialog" target="_self" href="https://localhost:44353/Branches">
                     חפש את המועדון המתאים עבורך
                     <i class="fa fa-search"></i>
                 </a>
@@ -44,7 +44,7 @@
                 <p>
 
 
-                    <a class="btn btn-default" id="btnOpenDialog" target="_self" href="/Branches/Index">
+                    <a class="btn btn-default" id="btnOpenDialog" target="_self" href="https://localhost:44353/Branches">
                         חפש את המועדון המתאים עבורך
                         <i class="fa fa-search"></i>
                     </a>
@@ -59,7 +59,7 @@
                 <p>
 
 
-                    <a class="btn btn-default" id="btnOpenDialog" target="_self" href="/Branches/Index">
+                    <a class="btn btn-default" id="btnOpenDialog" target="_self" href="https://localhost:44353/Branches">
                         חפש את המועדון המתאים עבורך
                         <i class="fa fa-search"></i>
                     </a>
@@ -98,8 +98,8 @@
                     <div class="border-box-content text-center">
                         <h3 class="mt-3 mb-0">חדש חדש!!פילאטיס מכשירים</h3>
                         <p class="mb-1">
-                            נסי עוד היום שיעור ניסיון חינם
-
+                           נסי עוד היום,רק אצלינו שיעור ניסיון חינם
+                     
                         </p>
                         <a class="btn-orange" target="_self" href="/Home/Contact">לפרטים</a>
                     </div>
@@ -112,7 +112,6 @@
                         <h3 class="mt-3 mb-0">הרשו לעצמכם להירגע</h3>
                         <p class="mb-1">
                             מגוון רחב של עיסויים וטיפולי פנים
-
                         </p>
                         <a class="btn-orange" href="/Home/Contact">לפרטים</a>
                     </div>
@@ -166,22 +165,23 @@
                     color: #FFF;
                 }
             </style>
-            <form id="FormInnerPage" class="form-full" action="/Home/tnxpage" method="POST" novalidate="novalidate">
+            <form id="FormInnerPage" class="form-full" action="/Home/tnxpage" method="POST">
 
                 <div class="row no-gutters">
                     <div class="col-12 col-sm-auto">
                         <div class="form-group">
-                            <input class="form-control" id="fullname" name="fullname" type="text" placeholder="שם מלא*">
+                            <input class="form-control" id="fullname" name="fullname" type="text" placeholder="שם מלא*" required>
                         </div>
                     </div>
                     <div class="col-12 col-sm-auto">
                         <div class="form-group">
-                            <input class="form-control" name="phone" type="text" placeholder="טלפון*">
+                            <input class="form-control" type="tel" pattern="^[0-9-+\s()]*$" placeholder="טלפון*" required>
                         </div>
                     </div>
                     <div class="col-12 col-sm-auto">
                         <div class="form-group">
-                            <input class="form-control" id="email" name="email" type="text" placeholder="דוא”ל">
+
+                            <input class="form-control" id="email" type="email" pattern="[a-z0-9._%+-]+@@[a-z0-9.-]+\.[a-z]{2,}$" placeholder="דוא”ל*" required>
                         </div>
                     </div>
                     <div class="col-12 col-sm-auto">
@@ -191,7 +191,7 @@
                     </div>
                     <div class="col-12 col-sm-auto">
                         <div class="form-group">
-                            <a id="mailBtn" class="btn-black ContactFormClubSubmit">שלח</a>
+                            <input type="submit" id="mailBtn" class="btn-black ContactFormClubSubmit" value="שלח" />
 
                             @*<button type="submit" class="btn-black ContactFormClubSubmit" href="https://localhost:44353/home/tnxpage">שלח</button>*@
                         </div>

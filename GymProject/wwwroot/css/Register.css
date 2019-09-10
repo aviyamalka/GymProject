@@ -1,4 +1,16 @@
 ﻿
+
+aside > img {
+    margin: -13.5rem;
+    width: 22%;
+    padding-left: -0.5rem;
+    margin-left: .5rem;
+    float: right;
+    box-shadow: inset 5px 0 5px -5px #29627e;
+    font-style: italic;
+    color: #29627e;
+}
+    
 .banner-small {
     min-height: 520px;
     background-size: cover;
