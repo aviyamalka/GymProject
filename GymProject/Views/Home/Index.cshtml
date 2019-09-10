@@ -165,22 +165,23 @@
                     color: #FFF;
                 }
             </style>
-            <form id="FormInnerPage" class="form-full" action="/Home/tnxpage" method="POST" novalidate="novalidate">
+            <form id="FormInnerPage" class="form-full" action="/Home/tnxpage" method="POST">
 
                 <div class="row no-gutters">
                     <div class="col-12 col-sm-auto">
                         <div class="form-group">
-                            <input class="form-control" id="fullname" name="fullname" type="text" placeholder="שם מלא*">
+                            <input class="form-control" id="fullname" name="fullname" type="text" placeholder="שם מלא*" required>
                         </div>
                     </div>
                     <div class="col-12 col-sm-auto">
                         <div class="form-group">
-                            <input class="form-control" name="phone" type="text" placeholder="טלפון*">
+                            <input class="form-control" type="tel" pattern="^[0-9-+\s()]*$" placeholder="טלפון*" required>
                         </div>
                     </div>
                     <div class="col-12 col-sm-auto">
                         <div class="form-group">
-                            <input class="form-control" id="email" name="email" type="text" placeholder="דוא”ל">
+
+                            <input class="form-control" id="email" type="email" pattern="[a-z0-9._%+-]+@@[a-z0-9.-]+\.[a-z]{2,}$" placeholder="דוא”ל*" required>
                         </div>
                     </div>
                     <div class="col-12 col-sm-auto">
@@ -190,7 +191,7 @@
                     </div>
                     <div class="col-12 col-sm-auto">
                         <div class="form-group">
-                            <a id="mailBtn" class="btn-black ContactFormClubSubmit" href="https://localhost:44353/Home//tnxpage">שלח</a>
+                            <input type="submit" id="mailBtn" class="btn-black ContactFormClubSubmit" value="שלח" />
 
                             @*<button type="submit" class="btn-black ContactFormClubSubmit" href="https://localhost:44353/home/tnxpage">שלח</button>*@
                         </div>
