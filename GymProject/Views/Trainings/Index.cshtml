@@ -20,18 +20,18 @@
 
 
 <div style="text-align:left;margin: 70px 0 25px 0;">
-@if (SignInManager.IsSignedIn(User) && User.IsInRole("Admin"))
-{
+    @if (SignInManager.IsSignedIn(User) && User.IsInRole("Admin"))
+    {
 
 
-    <a asp-action="Create">
+        <a asp-action="Create">
 
 
-        <button type="button" class="btn btn-primary btn-lg" style="color:#fff;">
-            <i class="glyphicon glyphicon-plus"></i> חדש
-        </button>
-    </a>
-}
+            <button type="button" class="btn btn-primary btn-lg" style="color:#fff;">
+                <i class="glyphicon glyphicon-plus"></i> חדש
+            </button>
+        </a>
+    }
 </div>
 
 
@@ -52,9 +52,16 @@
                 <p>@Html.DisplayFor(modelItem => item.shortDescription)</p>
                 <div class="options">
                     @if (SignInManager.IsSignedIn(User) && User.IsInRole("Admin"))
-                    { }
+                    {<div>
+                            <a asp-action="Edit" asp-route-id="@item.TrainingId">עריכה</a> |
+                            <a asp-action="Delete" asp-route-id="@item.TrainingId">מחיקה</a>
+                        </div>
+
+                    }
+                    @*@if (SignInManager.IsSignedIn(User) && User.IsInRole("Admin"))
+                        { }
                         <a asp-action="Edit" asp-route-id="@item.TrainingId">עריכה</a> |
-                        <a asp-action="Delete" asp-route-id="@item.TrainingId">מחיקה</a>
+                        <a asp-action="Delete" asp-route-id="@item.TrainingId">מחיקה</a>*@
 
                 </div>
             </div>
@@ -82,13 +89,15 @@
 <!-- ADD GOOGLE FONT FOR `Assistant` FONT -->
 <link href="https://fonts.googleapis.com/css?family=Assistant&display=swap" rel="stylesheet">
 
+<link href="~/css/form.css" rel="stylesheet" />
+<script src="~/js/Trainings.js"></script>
+<script src="~/js/Donut3D.js"></script>
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 
+<script src="~/lib/calendar/Calendar_DB_connect.js"></script>
+<link href="~/css/gym.css" rel="stylesheet" />
 
-
-
-
-
-
-
-
-
+<link href="~/css/form.css" rel="stylesheet" />
+<script src="~/js/Trainings.js"></script>
+<script src="~/js/Donut3D.js"></script>
+<div id="graphMap" class="pull-right">

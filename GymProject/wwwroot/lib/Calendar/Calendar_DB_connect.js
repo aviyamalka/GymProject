@@ -39,6 +39,18 @@
                 return result;
             }
         },
+
+        DbConnection.GetAllTrainingGroupByCategory = function () {
+        var url = "https://localhost:44353/Trainings/GetAllTrainingGroupByCategory";
+            var data;
+            var isAsync = false;
+            var result = DbConnection.getResultsFromServer(url, data, isAsync);
+            if (result !== null) {
+                return result;
+            }
+        }, 
+
+
         DbConnection.registerToLesson = function (UserId, LessonId) {
         var controllerURL = 'https://localhost:5001/Lessons/RegisterToLesson';
         $.ajax({
